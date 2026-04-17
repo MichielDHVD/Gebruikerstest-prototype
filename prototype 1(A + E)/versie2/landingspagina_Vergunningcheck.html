@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'home.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen' },
+        { label: 'Regels op de kaart' },
+        { label: 'Maatregelen op maat' },
+      ];
+    </script>
+    <div class="row dso-banner banner-image-vergunning-check"
+      style="background-image: url(&quot;img/VG-Banner.webp&quot;);">
+      <div class="col-xs-12 col-sm-6"><dso-highlight-box white="" drop-shadow="" class="hydrated">
+          <div class="dso-rich-content">
+            <h1>Vergunningcheck</h1>
+            <p>Wilt u iets veranderen aan het huis, tuin of bedrijf? Met de Vergunningcheck kunt u vooraf onderzoeken
+              of u voor uw plannen mogelijk een vergunning moet aanvragen, een melding moet doen of informatie geven.
+              Hoe vollediger u de vragen beantwoordt, hoe beter de Vergunningcheck kan aangeven waar u mogelijk
+              rekening mee moet houden.</p><button id="landingspagina-to-vergunningcheck-top" type="button"
+              class="btn dso-primary" onclick="gaNaarLocatie()"><span>Doe de Vergunningcheck</span></button>
+          </div>
+        </dso-highlight-box></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <h2>Check gedaan? Direct door naar aanvragen</h2>
+        <p>Bent u klaar met de Vergunningcheck en moet u een vergunning aanvragen, melding doen of informatie geven?
+          Dan kunt u meteen doorgaan met uw aanvraag of melding.</p>
+        <p>De locatie en activiteiten uit de Vergunningcheck worden meegenomen. U hoeft dit niet opnieuw in te vullen.
+          U kunt de aanvraag of melding ook tussentijds opslaan om de nodige gegevens op te zoeken. Heeft u de
+          aanvraag of melding volledig ingevuld? Dan kunt u deze via het Omgevingsloket indienen bij de
+          overheidsinstantie die uw aanvraag behandelt en bepaalt of u de activiteiten mag uitvoeren.</p>
+      </div>
+      <div class="col-xs-12 col-sm-4"><dso-highlight-box border="" class="hydrated">
+          <div class="dso-rich-content">
+            <h3>Vragen?</h3>
+            <p>Vragen over uw vergunning of melding? Neem contact op met uw gemeente of waterschap.</p>
+            <p>Vragen over hoe het Omgevingsloket werkt? Kijk in het <a id="to-helpcentrum"
+                tabindex="0">Helpcentrum</a>.</p>
+          </div>
+        </dso-highlight-box></div>
+    </div>
+    <div class="row dso-featured">
+      <div class="col-xs-12">
+        <h2>De stappen</h2>
+        <ol class="row dso-featured dso-equal-heights">
+          <li class="col-xs-12 col-md-3 col-sm-6"><dso-highlight-box class="hydrated" has-counter="1" white=""
+              drop-shadow="" step="1">
+              <div class="dso-rich-content">
+                <h3>Locatie</h3>
+                <p>Kies de locatie waar u iets wilt doen.</p>
+              </div>
+            </dso-highlight-box></li>
+          <li class="col-xs-12 col-md-3 col-sm-6"><dso-highlight-box class="hydrated" has-counter="2" white=""
+              drop-shadow="" step="2">
+              <div class="dso-rich-content">
+                <h3>Werkzaamheden</h3>
+                <p>Kies de werkzaamheden van uw project.</p>
+              </div>
+            </dso-highlight-box></li>
+          <li class="col-xs-12 col-md-3 col-sm-6"><dso-highlight-box class="hydrated" has-counter="3" white=""
+              drop-shadow="" step="3">
+              <div class="dso-rich-content">
+                <h3>Vragen beantwoorden</h3>
+                <p>Doorloop de check en beantwoord alle benodigde vragen. Vragen die in uw situatie niet meer relevant
+                  zijn vallen vanzelf weg.</p>
+              </div>
+            </dso-highlight-box></li>
+          <li class="col-xs-12 col-md-3 col-sm-6"><dso-highlight-box class="hydrated" has-counter="4" white=""
+              drop-shadow="" step="4">
+              <div class="dso-rich-content">
+                <h3>Resultaat</h3>
+                <p>U krijgt een overzicht. U ziet daar in of u een vergunning moet aanvragen of een melding moet doen.
+                </p>
+              </div>
+            </dso-highlight-box></li>
+          <li class="col-xs-12 col-md-3 col-sm-6"><dso-highlight-box class="hydrated" has-counter="5" white=""
+              drop-shadow="" step="5">
+              <div class="dso-rich-content">
+                <h3>Start een aanvraag</h3>
+                <p>U kunt ook vanuit de Vergunningcheck starten met een aanvraag. De locatie en activiteiten worden
+                  dan bewaard.</p>
+              </div>
+            </dso-highlight-box></li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2>Wilt u weten of u een vergunning nodig heeft?</h2><button id="landingspagina-to-vergunningcheck-bottom"
+          type="button" class="btn dso-primary">Doe de Vergunningcheck</button>
+      </div>
+    </div>
+    <hr>
+    <p class="dso-disclaimer" id="disclaimer">De Vergunningcheck is een serviceproduct van de Nederlandse overheid.
+      Het geeft u een algemene indruk of er voor
+      uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met veel aandacht
+      gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u geen absolute zekerheid.
+      Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog) niet in de Vergunningcheck
+      staan.
+      Of doordat er nog andere regels zijn waardoor u nog andere vergunningen moet aanvragen of andere meldingen moet
+      doen. U kunt daarom geen rechten ontlenen aan deze Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit
+      kunt uitvoeren? Dan raden wij u aan contact op te nemen met uw gemeente en/of waterschap.</p>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a><!----><!---->
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a><!----><!----></li><!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a><!----><!----></li>
+            <!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p><!---->
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p><!---->
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a><!----><!----></li>
+                <!---->
+              </ul><!---->
+            </div>
+          </div><!----><!---->
+        </div><!---->
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="vcheck-common.js"></script>
+</body>
+
+</html>

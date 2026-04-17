@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <div id="wizard">
+      <div class="dso-app-heading">
+        <h1>Vergunningcheck</h1>
+        <h2 id="step-indicator" class="dso-steps-indicator">2. Kies werkzaamheden - extra werkzaamheden<span
+            class="dso-step">Stap 2/4</span></h2>
+      </div>
+      <form class="form-vertical">
+        <div id="advice-for-good-outcome" role="alert" class="alert alert-warning"><span
+            class="sr-only">Waarschuwing:</span>
+          <div class="dso-rich-content">Bedrijf veranderen? Kies alleen de werkzaamheden die u gaat starten of
+            veranderen.</div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-4 col-md-push-8">
+            <div id="mijn-winkelmandje"></div>
+          </div>
+          <div class="col-md-8 col-md-pull-4">
+
+            <fieldset class="dso-form-group-collection">
+              <legend class="sr-only">
+                <h4>Kies alles dat u nog meer wilt doen. U mag deze stap ook overslaan.</h4>
+              </legend>
+              <div class="dso-context-wrapper"><span class="dso-context-label" aria-hidden="true">
+                  <h4>Kies alles dat u nog meer wilt doen. U mag deze stap ook overslaan.</h4>
+                </span></div><dso-list-button data-testid="listbutton-undefined-option-0"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-1"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-2"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-3"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-4"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-5"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-6"
+                class="hydrated"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-7"
+                class="hydrated"></dso-list-button>
+            </fieldset>
+          </div>
+        </div>
+        <div class="dso-form-buttons">
+          <div class="dso-aside"><a id="back-button-bottom" href="werkzaamheden.html" class="btn dso-tertiary "
+              data-testid="back-button-bottom"><dso-icon class="hydrated"
+                icon="chevron-left"></dso-icon><span>Vorige</span></a></div>
+          <button id="save-check-from-wizard" class="btn dso-secondary " type="button"><dso-icon class="hydrated"
+              icon="user-solid"></dso-icon><span>Vergunningcheck opslaan</span></button><button id="next-button-bottom"
+            class="btn dso-primary " type="button" data-testid="next-button-bottom" onclick="slaOpEnGaNaar()"><span>Volgende</span><dso-icon
+              class="hydrated" icon="chevron-right"></dso-icon></button>
+        </div>
+      </form>
+    </div>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script>
+    // === WINKELMANDJE ===
+    let gekozenItems = new Set();
+
+    function slaSessionOp() {
+      try {
+        const state = JSON.parse(sessionStorage.getItem('vcheck_state') || '{}');
+        state.werkzaamheden = Array.from(gekozenItems);
+        sessionStorage.setItem('vcheck_state', JSON.stringify(state));
+      } catch (e) { }
+    }
+
+    function renderWinkelmandje() {
+      const container = document.getElementById('mijn-winkelmandje');
+      if (!container) return;
+
+      const items = Array.from(gekozenItems);
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <h2>Mijn werkzaamheden</h2>
+          <div class="dso-shopping-cart">
+            <div class="dso-contents">
+              <h3 class="dso-empty">U heeft nog geen werkzaamheden gekozen</h3>
+            </div>
+          </div>`;
+        return;
+      }
+
+      const lijstHtml = items.map(naam => `
+        <li>
+          ${naam}
+          <button onclick="verwijderUitMandje('${naam}')" type="button" class="dso-delete">
+            <span class="sr-only">Verwijder ${naam}</span><dso-icon icon="trash"></dso-icon>
+          </button>
+        </li>`).join('');
+
+      container.innerHTML = `
+        <div class="dso-shopping-cart">
+          <div class="dso-contents">
+            <span class="dso-status">U heeft ${items.length} werkzaamheden gekozen</span>
+            <ul class="dso-items">${lijstHtml}</ul>
+          </div>
+        </div>`;
+    }
+
+    function verwijderUitMandje(naam) {
+      gekozenItems.delete(naam);
+      slaSessionOp();
+      renderWinkelmandje();
+      document.querySelectorAll('dso-list-button').forEach(btn => {
+        if (btn.getAttribute('label') === naam) btn.removeAttribute('checked');
+      });
+    }
+
+    // Laad sessie bij pagina-open
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const state = JSON.parse(sessionStorage.getItem('vcheck_state') || '{}');
+        if (state.werkzaamheden && Array.isArray(state.werkzaamheden)) {
+          state.werkzaamheden.forEach(naam => gekozenItems.add(naam));
+          renderWinkelmandje();
+          setTimeout(() => {
+            document.querySelectorAll('dso-list-button').forEach(btn => {
+              if (gekozenItems.has(btn.getAttribute('label'))) btn.setAttribute('checked', '');
+            });
+          }, 100);
+        }
+      } catch (e) { console.error('Fout bij laden sessie:', e); }
+    });
+    renderWinkelmandje();
+  </script>
+
+  <script>
+    const WERKZAAMHEID_MAPPING = {
+      'wortels-ja': 'Graven in bodem of waterbodem',
+      'boom-terug-ja': 'Boom planten of beplanting aanbrengen',
+      'monument-ja': 'Werkzaamheden in, aan of op een monument of archeologisch monument uitvoeren, of dit anders gebruiken'
+    };
+
+    
+
+    document.addEventListener('dsoChange', (event) => {
+      if (event.target.tagName.toLowerCase() !== 'dso-selectable') return;
+
+      const id = event.target.identifier;
+      const isChecked = event.detail.checked;
+
+      if (!id) return;
+
+      // 1. Haal huidige staat op
+      let state = JSON.parse(sessionStorage.getItem('vcheck_state') || '{"werkzaamheden": []}');
+
+  
+
+      // 3. Verwerk de extra opties van de radiobuttons
+      if (isChecked) {
+        if (WERKZAAMHEID_MAPPING[id]) {
+          const naam = WERKZAAMHEID_MAPPING[id];
+          if (!state.werkzaamheden.includes(naam)) {
+            state.werkzaamheden.push(naam);
+          }
+        } else if (id.endsWith('-nee')) {
+          const jaId = id.replace('-nee', '-ja');
+          const naam = WERKZAAMHEID_MAPPING[jaId];
+          state.werkzaamheden = state.werkzaamheden.filter(item => item !== naam);
+        }
+      }
+
+      // 4. Opslaan
+      sessionStorage.setItem('vcheck_state', JSON.stringify(state));
+      console.log('Sessie bijgewerkt:', state.werkzaamheden);
+    });
+
+    // Zorg ook dat bij het openen van de pagina de hoofdwerkzaamheid alvast wordt vastgelegd
+    document.addEventListener('DOMContentLoaded', () => {
+      let state = JSON.parse(sessionStorage.getItem('vcheck_state') || '{"werkzaamheden": []}');
+      if (!state.werkzaamheden.includes(HOOFD_WERKZAAMHEID)) {
+        state.werkzaamheden.push(HOOFD_WERKZAAMHEID);
+        sessionStorage.setItem('vcheck_state', JSON.stringify(state));
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('dso-accordion-section');
+
+      sections.forEach(section => {
+        // Luister direct op de dso-accordion-section
+        section.addEventListener('dsoToggleClick', (event) => {
+          // Bepaal of de sectie geopend moet worden (omgekeerde van huidige staat)
+          const shouldOpen = !section.open;
+
+          // 1. Sluit alle secties die in deze accordion zitten
+          sections.forEach(s => {
+            s.open = false;
+          });
+
+          // 2. Zet de 'open' state op true als de gebruiker hem open klikte
+          // Als de gebruiker op een reeds geopende sectie klikte, blijft shouldOpen false
+          section.open = shouldOpen;
+        });
+      });
+    });
+
+     // Sla op en navigeer naar locatie-pagina
+      function slaOpEnGaNaar() {
+        const state = JSON.parse(sessionStorage.getItem('vcheck_state') || '{}');
+        state.werkzaamheden = Array.from(gekozenItems);
+        sessionStorage.setItem('vcheck_state', JSON.stringify(state));
+        window.location.href = 'werkzaamheden-overzicht.html';
+      }
+    
+  </script>
+</body>
+
+</html>

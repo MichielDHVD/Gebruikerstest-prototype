@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <main>
+      <form class="form-horizontal">
+        
+        <div class="dso-app-heading">
+          
+          <h1>Vergunningcheck</h1>
+          
+          <h2 class="dso-steps-indicator">
+            3. Vragen beantwoorden <span class="dso-step">Stap
+              3/4</span>
+          </h2>
+
+        </div>
+
+        <h3>Boom of beplanting onderhouden of weghalen</h3>
+        
+        <dso-accordion class="hydrated">
+          <dso-accordion-section open="" heading="h4"
+            status-description="0 van 5 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
+            
+            <fieldset>
+              <legend class="sr-only">Vragenlijst</legend>
+              
+              <fieldset class="form-group dso-radios  dso-inline " aria-describedby="radios-info-text">
+                <legend class="sr-only">Test Vraag 1</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Test Vraag 1</span>
+                  
+                  <dso-info fixed="" active="" class="hydrated">
+                    <div class="dso-rich-content">
+                      <p>Vaste toelichting bij een vraag.</p>
+                    </div>
+                  </dso-info>
+                </div>
+                <div class="dso-field-container">
+                  
+                  <dso-selectable type="radio" identifier="antwoord-radio-1" value="Antwoord 1"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="radio"
+                          id="antwoord-radio-1" value="Antwoord 1" class="sc-dso-selectable"><label
+                          for="antwoord-radio-1" class="sc-dso-selectable sc-dso-selectable-s">
+                          Antwoord 1 
+                          
+                        </label></div>
+                    </div>
+                  </dso-selectable>
+                  
+                  <dso-selectable type="radio" identifier="antwoord-radio-2" value="Antwoord 2"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="radio"
+                          id="antwoord-radio-2" value="Antwoord 2" class="sc-dso-selectable"><label
+                          for="antwoord-radio-2" class="sc-dso-selectable sc-dso-selectable-s">
+                          Antwoord 2 
+                          
+                        </label></div>
+                    </div>
+                  </dso-selectable>
+                  
+                  
+                  
+                </div>
+              </fieldset>
+              
+              <fieldset class="form-group dso-checkboxes   ">
+                <legend class="sr-only">Test Vraag 2</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Test Vraag 2</span>
+                  
+                  
+                </div>
+                <div class="dso-field-container">
+                  
+                  <dso-selectable type="checkbox" identifier="antwoord-checkbox-1" value="Antwoord 1"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="checkbox"
+                          id="antwoord-checkbox-1" value="Antwoord 1" class="sc-dso-selectable"><label
+                          for="antwoord-checkbox-1" class="sc-dso-selectable sc-dso-selectable-s">
+                          Antwoord 1 
+                          
+                        </label></div>
+                    </div>
+                  </dso-selectable>
+                  
+                  <dso-selectable type="checkbox" identifier="antwoord-checkbox-2" value="Antwoord 2"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="checkbox"
+                          id="antwoord-checkbox-2" value="Antwoord 2" class="sc-dso-selectable"><label
+                          for="antwoord-checkbox-2" class="sc-dso-selectable sc-dso-selectable-s">
+                          Antwoord 2 
+                          
+                        </label></div>
+                    </div>
+                  </dso-selectable>
+                  
+                  
+                  
+                </div>
+              </fieldset>
+
+              
+              <div class="form-group dso-input  dso-input-text dso-required ">
+                <div class="dso-label-container">
+                  <label class="control-label" for="vraag 3"> Vul hier uw antwoord in </label>
+                  
+                  
+                </div>
+                <div class="dso-field-container">
+                  
+                  <input class="form-control" type="text" id="vraag 3" value="Placeholder " aria-invalid="false"
+                    required="">
+
+                  
+                  
+                  
+                </div>
+              </div>
+
+            </fieldset>
+            <div class="dso-form-buttons">
+              
+              <button type="button" class="dso-primary">
+                <span>Volgende
+                  stap</span>
+              </button>
+
+            </div>
+
+          </dso-accordion-section><dso-accordion-section heading="h4"
+            status-description="2 van 3 vragen beantwoord" status="danger"
+            class="dso-accordion-section hydrated dso-accordion-default">
+            
+          </dso-accordion-section><dso-accordion-section heading="h4"
+            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
+            
+          </dso-accordion-section><dso-accordion-section heading="h4"
+            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
+            
+          </dso-accordion-section><dso-accordion-section heading="h4"
+            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
+            
+          </dso-accordion-section><dso-accordion-section heading="h4"
+            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
+            
+          </dso-accordion-section>
+        </dso-accordion>
+
+        
+        <div class="dso-form-buttons">
+          
+          <div class="dso-aside">
+            <button type="button" class="dso-tertiary" onclick="gaNaarOverzicht()">
+              <dso-icon icon="chevron-left"
+                class="hydrated"></dso-icon><span>Vorige
+                stap</span>
+            </button>
+            
+          </div>
+          
+          <button type="button" class="dso-secondary"  onclick="gaNaarConclusie()">
+            <span>Volgende
+              stap</span><dso-icon icon="chevron-right"
+              class="hydrated"></dso-icon>
+          </button>
+          
+        </div>
+      </form>
+      
+    </main>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="vcheck-common.js"></script>
+</body>
+
+</html>

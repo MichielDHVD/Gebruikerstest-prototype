@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+</head>
+
+<body>
+  <main id="homepage" class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'home.html', active: true },
+        { label: 'Vergunningcheck', url: 'landingspagina_Vergunningcheck.html' },
+        { label: 'Aanvragen' },
+        { label: 'Regels op de kaart' },
+        { label: 'Maatregelen op maat' },
+      ];
+    </script>
+    <div class="row dso-banner omgevingsloket-banner no-button-banner"
+      style="background-image: url(&quot;img/homebanner.jpg&quot;);">
+      <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+        <div class="dso-highlight-box dso-white dso-drop-shadow">
+          <div class="dso-rich-content">
+            <h1>Welkom op het Omgevingsloket</h1>
+            <p>Een vergunning aanvragen, melding doen of informatie geven? Bijvoorbeeld
+              voor een nieuwe dakkapel, een nieuw bedrijfspand of een activiteit op of aan een dijk? Het kan met het
+              Omgevingsloket.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row dso-featured dso-equal-heights">
+      <div class="col-xs-12">
+        <div class="dso-highlight-box dso-white dso-border">
+          <div class="row">
+            <div class="col-md-5 col-md-push-7">
+              <div class="dso-rich-content">
+                <h2>Check of u een vergunning nodig heeft</h2>
+                <p>Wilt u iets veranderen aan het huis, tuin of bedrijf?</p>
+                <p>Doe de Vergunningcheck om te zien of u mogelijk een vergunning nodig
+                  heeft, een melding moet doen of informatie moet geven.</p><a class="dso-secondary"
+                  href="landingspagina_Vergunningcheck.html"><span>Vergunningcheck</span><dso-icon icon="chevron-right"
+                    class="hydrated"></dso-icon></a>
+              </div>
+            </div>
+            <div class="col-md-7 col-md-pull-5"><portal-werkzaamheden-bar _nghost-ng-c251647808="">
+                <div _ngcontent-ng-c251647808="" class="dso-rich-content">
+                  <h3 _ngcontent-ng-c251647808="">Meest gekozen werkzaamheden</h3>
+                </div>
+                <div _ngcontent-ng-c251647808="" class="dso-tile-grid"><portal-start-werkzaamheid
+                    _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken/nieuw/stap/1-0"
+                        href=""><span class="dso-tile-icon"><img alt="" title=""
+                            aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTEyLjMsODguMkwyNi44LDIxLjNsMCwxNzkuNmg3MC44YzIuMiwwLDQuMS0xLjgsNC4xLTQuMVY5NC41bDExLjMsMC4xQzExNC40LDkyLjgsMTE0LjEsODkuNiwxMTIuMyw4OC4yeiINCgkJLz4NCgk8Zz4NCgkJPGRlZnM+DQoJCQk8cmVjdCBpZD0iU1ZHSURfMV8iIHg9Ijk5LjkiIHk9Ijc3LjYiIHdpZHRoPSIxMTIuOCIgaGVpZ2h0PSIxMTIuOCIvPg0KCQk8L2RlZnM+DQoJCTxjbGlwUGF0aCBpZD0iU1ZHSURfMl8iPg0KCQkJPHVzZSB4bGluazpocmVmPSIjU1ZHSURfMV8iICBzdHlsZT0ib3ZlcmZsb3c6dmlzaWJsZTsiLz4NCgkJPC9jbGlwUGF0aD4NCgkJPHBhdGggY2xhc3M9InN0MyIgZD0iTTEyMywxMjMuOHY2Ni43aDUxLjN2LTY2LjdIMTIzeiBNMTY5LjEsMTU5LjdjMCwxLjQtMS4yLDIuNi0yLjYsMi42cy0yLjYtMS4yLTIuNi0yLjZ2LTEwLjMNCgkJCWMwLTEuNCwxLjItMi42LDIuNi0yLjZzMi42LDEuMiwyLjYsMi42VjE1OS43eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMjEyLjcsMTA4LjR2NzkuNWMwLDEuNC0xLjIsMi42LTIuNiwyLjZoLTE1LjR2LTY5LjJjMC0xLjQtMS4yLTIuNi0yLjYtMi42aC03MS44Yy0xLjQsMC0yLjYsMS4yLTIuNiwyLjYNCgkJCXY2OS4yaC0xNS40Yy0xLjQsMC0yLjYtMS4yLTIuNi0yLjZ2LTc5LjVjMC0xLDAuNS0xLjgsMS40LTIuM2w1My44LTI4LjJjMC43LTAuNCwxLjYtMC40LDIuNCwwbDUzLjgsMjguMg0KCQkJQzIxMi4yLDEwNi42LDIxMi43LDEwNy41LDIxMi43LDEwOC40TDIxMi43LDEwOC40eiIvPg0KCTwvZz4NCgk8Zz4NCgkJPGNpcmNsZSBjbGFzcz0ic3Q0IiBjeD0iNTguOCIgY3k9IjE2OCIgcj0iNDIuNSIvPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01Ni40LDE5MC45Yy0wLjQtMC4zLTAuNy0wLjgtMC43LTEuNHYtMTYuOUgzOC44Yy0wLjcsMC0xLjItMC4yLTEuNS0wLjVjLTAuMy0wLjMtMC40LTEtMC40LTEuOXYtMC43DQoJCQkJYzAtMi4xLDAuNi0zLjIsMS45LTMuMmgxNi45di0xNi45YzAtMC43LDAuMi0xLjIsMC43LTEuNWMwLjQtMC4zLDEuMi0wLjQsMi4yLTAuNGgwLjdjMSwwLDEuNywwLjIsMi4yLDAuNQ0KCQkJCWMwLjQsMC4zLDAuNywwLjgsMC43LDEuNHYxNi45aDE2LjhjMC43LDAsMS4yLDAuMiwxLjUsMC43YzAuMywwLjQsMC40LDEuMiwwLjQsMi4ydjAuN2MwLDEtMC4xLDEuNy0wLjQsMi4yDQoJCQkJYy0wLjMsMC40LTAuOCwwLjctMS41LDAuN0g2MnYxNi45YzAsMC42LTAuMiwxLjEtMC43LDEuNGMtMC40LDAuMy0xLjIsMC41LTIuMiwwLjVoLTAuN0M1Ny41LDE5MS4zLDU2LjgsMTkxLjIsNTYuNCwxOTAuOXoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K"></span><span
+                          class="dso-tile-link">Aanbouw of schuur plaatsen</span></a></div>
+                  </portal-start-werkzaamheid><portal-start-werkzaamheid _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken/nieuw/stap/1-1" href=""><span
+                          class="dso-tile-icon"><img alt="" title="" aria-hidden="true"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8Zz4NCgkJPGc+DQoJCQk8ZGVmcz4NCgkJCQk8cmVjdCBpZD0iU1ZHSURfM18iIHg9IjEzLjQiIHk9IjEzLjIiIHdpZHRoPSIyMTcuNiIgaGVpZ2h0PSIxODcuMiIvPg0KCQkJPC9kZWZzPg0KCQkJPGNsaXBQYXRoIGlkPSJTVkdJRF8yXyI+DQoJCQkJPHVzZSB4bGluazpocmVmPSIjU1ZHSURfM18iICBzdHlsZT0ib3ZlcmZsb3c6dmlzaWJsZTsiLz4NCgkJCTwvY2xpcFBhdGg+DQoJCQk8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMjExLjEsMTY3Ljl2LTYuNWgwYzAtMS0wLjEtMy41LTAuNy01LjJsLTE5LjYtNzcuNGMtMS4yLTQuOC01LjMtOC4yLTkuOS04LjJINjAuN2MtNC42LDAtOC43LDMuNC05LjksOC4yDQoJCQkJbC0yMCw3OWMtMC4yLDAuOS0wLjQsMi42LTAuNCwyLjl2Ny4yYzAsNi4xLDQuNiwxMS4xLDEwLjMsMTEuMWgxNjAuMWMzLjksMCw2LjItMS43LDcuNS0zLjENCgkJCQlDMjExLjEsMTcyLjYsMjExLjEsMTY4LjIsMjExLjEsMTY3LjlMMjExLjEsMTY3Ljl6Ii8+DQoJCQk8ZyBzdHlsZT0iY2xpcC1wYXRoOnVybCgjU1ZHSURfMl8pOyI+DQoJCQkJPGc+DQoJCQkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMjUuNywxMTUuM2gyMy40bC0yLjgtMzAuOWgtMjAuN1YxMTUuM3oiLz4NCgkJCQk8L2c+DQoJCQk8L2c+DQoJCQk8ZyBzdHlsZT0iY2xpcC1wYXRoOnVybCgjU1ZHSURfMl8pOyI+DQoJCQkJPGc+DQoJCQkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik01MC40LDE2NC42SDc4bDMuMy0zOS4xSDU3TDUwLjQsMTY0LjZ6Ii8+DQoJCQkJPC9nPg0KCQkJPC9nPg0KCQkJPGcgc3R5bGU9ImNsaXAtcGF0aDp1cmwoI1NWR0lEXzJfKTsiPg0KCQkJCTxnPg0KCQkJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTksMTE1LjNoMjMuM2wyLjgtMzAuOUg2NC41TDU5LDExNS4zeiIvPg0KCQkJCTwvZz4NCgkJCTwvZz4NCgkJCTxnIHN0eWxlPSJjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7Ij4NCgkJCQk8Zz4NCgkJCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTg4LDE2NC42aDI3Ljd2LTM5LjFIOTEuM0w4OCwxNjQuNnoiLz4NCgkJCQk8L2c+DQoJCQk8L2c+DQoJCQk8ZyBzdHlsZT0iY2xpcC1wYXRoOnVybCgjU1ZHSURfMl8pOyI+DQoJCQkJPGc+DQoJCQkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik05Mi4zLDExNS4zaDIzLjRWODQuNEg5NS4xTDkyLjMsMTE1LjN6Ii8+DQoJCQkJPC9nPg0KCQkJPC9nPg0KCQkJPGcgc3R5bGU9ImNsaXAtcGF0aDp1cmwoI1NWR0lEXzJfKTsiPg0KCQkJCTxnPg0KCQkJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTI1LjcsMTY0LjZoMjcuN2wtMy4zLTM5LjFoLTI0LjRWMTY0LjZ6Ii8+DQoJCQkJPC9nPg0KCQkJPC9nPg0KCQkJPGcgc3R5bGU9ImNsaXAtcGF0aDp1cmwoI1NWR0lEXzJfKTsiPg0KCQkJCTxnPg0KCQkJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTU5LjEsMTE1LjNoMjMuM2wtNS41LTMwLjloLTIwLjZMMTU5LjEsMTE1LjN6Ii8+DQoJCQkJPC9nPg0KCQkJPC9nPg0KCQkJPGcgc3R5bGU9ImNsaXAtcGF0aDp1cmwoI1NWR0lEXzJfKTsiPg0KCQkJCTxnPg0KCQkJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTYzLjQsMTY0LjZIMTkxbC02LjUtMzkuMWgtMjQuM0wxNjMuNCwxNjQuNnoiLz4NCgkJCQk8L2c+DQoJCQk8L2c+DQoJCQk8cGF0aCBjbGFzcz0ic3QzIiBkPSJNOTYuMyw2My44YzAuMiwwLjEsMC40LDAuMiwwLjYsMC4zaDI0LjJjLTAuMi0xLjEtMC40LTIuMy0wLjQtMy41YzAtOS44LDcuNC0xNy44LDE2LjYtMTcuOA0KCQkJCWM5LjIsMCwxNi42LDcuOSwxNi42LDE3LjhjMCwxLjItMC4xLDIuNC0wLjQsMy41SDE3OGMwLjItMC4xLDAuNC0wLjIsMC41LTAuMmMxLjMtMC42LDIuMS0xLjksMi0zLjNjMC0xLjUtMC45LTIuNy0yLjEtMy4zDQoJCQkJYy02LjYtMi43LTEzLjItNi41LTE0LThjLTEuMi0zLjEsMS44LTEyLjIsNC4yLTE3LjNjMC42LTEuNCwwLjQtMy0wLjctNC4xYy0xLTEuMS0yLjYtMS4zLTMuOS0wLjZjLTMuNiwyLTEwLjUsNS4zLTEzLjksNS4zDQoJCQkJYy0wLjUsMC0wLjctMC4xLTAuNy0wLjFjLTItMS4xLTYuMi05LjItOC45LTE1LjljLTAuNS0xLjQtMS44LTIuMi0zLjItMi4yYy0xLjQsMC4xLTIuNiwxLTMsMi40Yy0yLjMsNy4zLTUuOSwxNC42LTcuNiwxNS40DQoJCQkJYzAsMC0wLjIsMC4xLTAuOSwwLjFjLTQuMSwwLTEyLjMtMy43LTE1LjEtNS4xYy0xLjMtMC42LTIuNy0wLjQtMy43LDAuN2MtMSwxLTEuMywyLjYtMC43LDRjMi41LDYuMiw1LDE0LjUsNC43LDE3LjMNCgkJCQljLTEuNywxLjctOC43LDUuNS0xNC42LDguMmMtMS4yLDAuNi0yLDEuOS0yLDMuM0M5NC4yLDYyLDk1LjEsNjMuMyw5Ni4zLDYzLjhMOTYuMyw2My44eiIvPg0KCQk8L2c+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNTUuMSwyMDZoLTY1Yy0yLDAtMy42LTEuNi0zLjYtMy42di0zLjZjMC02LDQuOS0xMC45LDEwLjgtMTAuOWg3LjJ2LTMuNmgzNi4xdjMuNmg3LjINCgkJCWM2LDAsMTAuOCw0LjksMTAuOCwxMC44djMuNkMxNTguOCwyMDQuNCwxNTcuMiwyMDYsMTU1LjEsMjA2TDE1NS4xLDIwNnogTTE1NS4xLDIwNiIvPg0KCTwvZz4NCgk8Zz4NCgkJPGNpcmNsZSBjbGFzcz0ic3Q0IiBjeD0iNTkuNyIgY3k9IjE2Ny44IiByPSI0Mi41Ii8+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU3LjMsMTkwLjZjLTAuNC0wLjMtMC43LTAuOC0wLjctMS40di0xNi45SDM5LjhjLTAuNywwLTEuMi0wLjItMS41LTAuNWMtMC4zLTAuMy0wLjQtMS0wLjQtMS45di0wLjcNCgkJCQljMC0yLjEsMC42LTMuMiwxLjktMy4yaDE2Ljl2LTE2LjljMC0wLjcsMC4yLTEuMiwwLjctMS41YzAuNC0wLjMsMS4yLTAuNCwyLjItMC40aDAuN2MxLDAsMS43LDAuMiwyLjIsMC41DQoJCQkJYzAuNCwwLjMsMC43LDAuOCwwLjcsMS40VjE2NmgxNi44YzAuNywwLDEuMiwwLjIsMS41LDAuN2MwLjMsMC40LDAuNCwxLjIsMC40LDIuMnYwLjdjMCwxLTAuMSwxLjctMC40LDIuMg0KCQkJCWMtMC4zLDAuNC0wLjgsMC43LTEuNSwwLjdINjN2MTYuOWMwLDAuNi0wLjIsMS4xLTAuNywxLjRjLTAuNCwwLjMtMS4yLDAuNS0yLjIsMC41aC0wLjdDNTguNSwxOTEsNTcuOCwxOTAuOSw1Ny4zLDE5MC42eiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo="></span><span class="dso-tile-link">Zonnepanelen
+                          plaatsen</span></a></div>
+                  </portal-start-werkzaamheid><portal-start-werkzaamheid _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken/nieuw/stap/1-2" href=""><span
+                          class="dso-tile-icon"><img alt="" title="" aria-hidden="true"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTcuMSw5Ni4zbDExLjQsMC4xdjEwMi41YzAsMi4yLDEuOCw0LjEsNC4xLDQuMWgxNjIuOGMyLjIsMCw0LjEtMS44LDQuMS00LjFWOTYuMmwxMS40LDAuMQ0KCQljMS40LTEuOCwxLjEtNS0wLjctNi40TDE4Ni4xLDcxVjQzbDIuOCwwYzAuNS0wLjcsMC43LTUuOSwwLTYuNGwtNDYuNy0wLjFsLTI1LjgtMjBjLTEuNS0xLjEtMy41LTEuMS01LjEsMEwxNy44LDg5LjkNCgkJQzE2LDkxLjIsMTUuNyw5NC41LDE3LjEsOTYuM3oiLz4NCgk8Zz4NCgkJPGNpcmNsZSBjbGFzcz0ic3Q0IiBjeD0iNTguNyIgY3k9IjE2OCIgcj0iNDIuNSIvPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01Ni4zLDE5MC45Yy0wLjQtMC4zLTAuNy0wLjgtMC43LTEuNHYtMTYuOUgzOC43Yy0wLjcsMC0xLjItMC4yLTEuNS0wLjVjLTAuMy0wLjMtMC40LTEtMC40LTEuOXYtMC43DQoJCQkJYzAtMi4xLDAuNi0zLjIsMS45LTMuMmgxNi45di0xNi45YzAtMC43LDAuMi0xLjIsMC43LTEuNWMwLjQtMC4zLDEuMi0wLjQsMi4yLTAuNGgwLjdjMSwwLDEuNywwLjIsMi4yLDAuNQ0KCQkJCWMwLjQsMC4zLDAuNywwLjgsMC43LDEuNHYxNi45aDE2LjhjMC43LDAsMS4yLDAuMiwxLjUsMC43YzAuMywwLjQsMC40LDEuMiwwLjQsMi4ydjAuN2MwLDEtMC4xLDEuNy0wLjQsMi4yDQoJCQkJYy0wLjMsMC40LTAuOCwwLjctMS41LDAuN0g2MS45djE2LjljMCwwLjYtMC4yLDEuMS0wLjcsMS40Yy0wLjQsMC4zLTEuMiwwLjUtMi4yLDAuNWgtMC43QzU3LjQsMTkxLjMsNTYuNywxOTEuMiw1Ni4zLDE5MC45eiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo="></span><span
+                          class="dso-tile-link">Dakkapel
+                          plaatsen</span></a></div>
+                  </portal-start-werkzaamheid><portal-start-werkzaamheid _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken/nieuw/stap/1-3" href=""><span
+                          class="dso-tile-icon"><img alt="" title="" aria-hidden="true"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjExLjIsOTYuM2wtMTEuNCwwLjF2MTAyLjljMCwyLjItMS44LDQuMS00LjEsNC4xSDMyLjRjLTIuMiwwLTQuMS0xLjgtNC4xLTQuMXYtMTAzbC0xMS40LDAuMQ0KCQljLTEuNC0xLjgtMS4xLTUuMSwwLjctNi40bDkzLjktNzMuNWMxLjUtMS4xLDMuNi0xLjEsNS4xLDBsOTMuOSw3My41QzIxMi4yLDkxLjMsMjEyLjYsOTQuNSwyMTEuMiw5Ni4zeiIvPg0KCTxnPg0KCQk8Y2lyY2xlIGNsYXNzPSJzdDQiIGN4PSI1OS4yIiBjeT0iMTY4IiByPSI0Mi41Ii8+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01OC45LDE0Mi40Yy02LjYsMC0xMi42LDIuNC0xNy4yLDYuM2MtMSwwLjgtMS4xLDIuMS0wLjQsMy4xYzAuOCwxLDIuMSwxLjEsMy4xLDAuNGMwLDAsMC4xLTAuMSwwLjEtMC4xDQoJCQljMy45LTMuMyw4LjktNS4zLDE0LjMtNS4zYzExLjUsMCwyMC45LDguNywyMiwxOS45aC02LjVsOC44LDEzLjNsOC44LTEzLjNoLTYuN0M4NC4yLDE1My4xLDcyLjgsMTQyLjQsNTguOSwxNDIuNHogTTM0LjYsMTU3LjgNCgkJCWwtOC44LDEzLjNoNi43YzEuMSwxMy42LDEyLjUsMjQuMywyNi40LDI0LjNjNi42LDAsMTIuNi0yLjQsMTcuMi02LjNjMS0wLjgsMS4xLTIuMSwwLjQtMy4xYy0wLjgtMS0yLjEtMS4xLTMuMS0wLjQNCgkJCWMwLDAtMC4xLDAuMS0wLjEsMC4xYy0zLjksMy4zLTguOSw1LjMtMTQuMyw1LjNjLTExLjUsMC0yMC45LTguNy0yMi0xOS45aDYuNUwzNC42LDE1Ny44eiIvPg0KCTwvZz4NCgk8cmVjdCB4PSIxMjYuOSIgeT0iMTA1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSIxOC40IiBoZWlnaHQ9IjI5LjEiLz4NCgk8cmVjdCB4PSIxNTAuNCIgeT0iMTA1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSIxOC40IiBoZWlnaHQ9IjI5LjEiLz4NCgk8cmVjdCB4PSIxMjYuOSIgeT0iMTM5LjciIGNsYXNzPSJzdDEiIHdpZHRoPSIxOC40IiBoZWlnaHQ9IjI5LjEiLz4NCgk8cmVjdCB4PSIxNTAuNCIgeT0iMTM5LjciIGNsYXNzPSJzdDEiIHdpZHRoPSIxOC40IiBoZWlnaHQ9IjI5LjEiLz4NCjwvZz4NCjwvc3ZnPg0K"></span><span class="dso-tile-link">Airco
+                          plaatsen</span></a></div>
+                  </portal-start-werkzaamheid><portal-start-werkzaamheid _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken/nieuw/stap/1-4"
+                        href="boomkappen.html"><span class="dso-tile-icon" ><img alt="" title=""
+                            aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjA3LDEwNmMxLTExLjUtNi0yMi4xLTE2LjgtMjcuNGM2LjItMy40LDEwLjYtOS4yLDExLjItMTYuMmMxLTExLjctOS0yMi4xLTIyLjItMjMuMg0KCQljLTEuMS02LjQtNC42LTEyLjUtMTAuNy0xNy4xYy0xMy05LjktMzIuNC04LjgtNDMuMiwyLjVjLTIuOSwzLjEtNC45LDYuNS02LDEwLjJjLTguMS0xLjQtMTcuNiwxLjMtMjQuNyw3LjgNCgkJYy02LjMsNS45LTkuMSwxMy4zLTguMiwyMGMtMS4zLTAuMy0yLjctMC42LTQuMS0wLjdjLTEzLjMtMS4xLTI0LjgsNy41LTI1LjgsMTkuM2MtMC43LDguMiw0LDE1LjYsMTEuNCwxOS44DQoJCWMtMC40LDAuMy0wLjgsMC41LTEuMiwwLjhjLTkuNiw4LTguMywyMi45LDIuOCwzMy4zYzUuMiw0LjgsMTEuNiw3LjcsMTgsOC43bDAuMSwwLjFjMC41LDAuNCwxMi4zLDEwLjYsMTYuNiwxMy40DQoJCWMzLjIsMi4xLDUuNiwzLDYuNywzLjRjMC43LDEuNCwyLjYsNi4xLDIuMSwxMy41Yy0xLjQsMjEuNS0yLjcsMjQuOC02LjUsMjcuM2MtMy43LDIuNSwyOC43LDUuNywyNS45LDIuMg0KCQljLTMuMi00LjEtNy44LTkuOC03LjUtMjguNWMwLjItOS4zLDEtMTIuNCwxLjQtMTMuNGMxMC43LDIsMTYuMi0zLjgsMTguNi03LjljOSw0LjcsMjEuMSw1LjEsMzEuNCwwYzExLjQtNS42LDE3LjQtMTYuMywxNi4xLTI2LjQNCgkJQzIwMC42LDEyMi44LDIwNi4yLDExNS4xLDIwNywxMDZ6IE0xMTMuNSwxNTIuM2MtMy4xLDAuOC05LjYtNC4zLTE0LjQtOS4xYzIuOS0wLjgsNS42LTIuMSw3LjktNGMwLjYtMC41LDEtMS4xLDEuNS0xLjYNCgkJYzEuNSwwLjgsMy4xLDEuNiw0LjgsMi4zQzExNC4yLDE0Ni4xLDExNC4zLDE1MS41LDExMy41LDE1Mi4zeiBNMTIzLjUsMTUyLjJjLTIuNSwwLTIuNS00LjEtMi40LTVjMC0xLTAuMS0yLjktMC4zLTQuOA0KCQljMi42LDAuNyw1LjMsMS4yLDguMSwxLjZDMTI3LjMsMTQ4LjIsMTI0LjksMTUyLjMsMTIzLjUsMTUyLjJ6IE0xMzUuOCwxNTUuNGMtMS44LDEuMi01LjIsMS4xLTUuNywwLjljMC4xLTEsMy4xLTUuNiw2LjEtOS44DQoJCWMxLDEuNCwyLjIsMi43LDMuNSwzLjhDMTM5LjEsMTUxLjYsMTM3LjgsMTU0LDEzNS44LDE1NS40eiIvPg0KCTxnPg0KCQk8Y2lyY2xlIGNsYXNzPSJzdDQiIGN4PSI1OS4zIiBjeT0iMTY3LjgiIHI9IjQyLjUiLz4NCgkJPGc+DQoJCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzkuMywxNzIuM2MtMC43LDAtMS4yLTAuMi0xLjUtMC41Yy0wLjMtMC4zLTAuNC0xLTAuNC0xLjl2LTAuN2MwLTIuMSwwLjYtMy4yLDEuOS0zLjJoNDANCgkJCQljMC43LDAsMS4yLDAuMiwxLjUsMC43YzAuMywwLjQsMC40LDEuMiwwLjQsMi4ydjAuN2MwLDEtMC4xLDEuNy0wLjQsMi4yYy0wLjMsMC40LTAuOCwwLjctMS41LDAuN0gzOS4zeiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo="></span><span class="dso-tile-link">Boom
+                          kappen of snoeien</span></a></div>
+                  </portal-start-werkzaamheid><portal-start-werkzaamheid _ngcontent-ng-c251647808="">
+                    <div class="dso-tile dso-theme"><a id="checken-5" href="landingspagina_Vergunningcheck.html"><span class="dso-tile-icon"><img
+                            alt="" title="" aria-hidden="true" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjYsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIyNi44IDIyNi44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMjYuOCAyMjYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzM5ODcwQzt9DQoJLnN0MXtmaWxsOiNGRkZGRkY7fQ0KCS5zdDJ7ZGlzcGxheTpub25lO2ZpbGw6IzM5ODcwQzt9DQoJLnN0M3tjbGlwLXBhdGg6dXJsKCNTVkdJRF8yXyk7ZmlsbDojMzk4NzBDO30NCgkuc3Q0e2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0NXtmaWxsOm5vbmU7fQ0KCS5zdDZ7Y2xpcC1wYXRoOnVybCgjU1ZHSURfNF8pO2ZpbGw6IzM5ODcwQzt9DQoJLnN0N3tjbGlwLXBhdGg6dXJsKCNTVkdJRF80Xyk7fQ0KCS5zdDh7ZGlzcGxheTpub25lO30NCgkuc3Q5e2Rpc3BsYXk6aW5saW5lO2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6My43NzI5O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxMHtkaXNwbGF5OmlubGluZTt9DQoJLnN0MTF7ZmlsbDojMzk4NzBDO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDozLjc3Mjk7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEye2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NC4yNTI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDEze2ZpbGw6I0ZGRkZGRjtzdHJva2U6IzM5ODcwQztzdHJva2Utd2lkdGg6NC44MDE0O3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCgkuc3QxNHtmaWxsOiMzOTg3MEM7c3Ryb2tlOiMzOTg3MEM7c3Ryb2tlLXdpZHRoOjQuODAxNDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MTV7ZmlsbDpub25lO3N0cm9rZTojMzk4NzBDO3N0cm9rZS13aWR0aDo0LjgwMTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQ0KCS5zdDE2e2ZpbGw6IzM5ODcwQztzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS4zMzMzO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8ZyBpZD0iS2FkZXIiPg0KPC9nPg0KPGcgaWQ9Ikljb29uIj4NCgk8Zz4NCgkJPGNpcmNsZSBjbGFzcz0ic3Q0IiBjeD0iMTEzLjQiIGN5PSIxMTMuNCIgcj0iNTYuNyIvPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMTAuMiwxNDMuOGMtMC42LTAuNC0wLjktMS0wLjktMS45di0yMi41SDg2LjhjLTAuOSwwLTEuNi0wLjItMS45LTAuN2MtMC40LTAuNS0wLjYtMS4zLTAuNi0yLjZ2LTAuOQ0KCQkJCWMwLTIuOCwwLjgtNC4zLDIuNS00LjNoMjIuNVY4OC41YzAtMC45LDAuMy0xLjYsMC45LTEuOWMwLjYtMC40LDEuNS0wLjYsMi45LTAuNmgwLjljMS4zLDAsMi4zLDAuMiwyLjksMC42DQoJCQkJYzAuNiwwLjQsMC45LDEsMC45LDEuOVYxMTFoMjIuNGMwLjksMCwxLjYsMC4zLDEuOSwwLjljMC40LDAuNiwwLjYsMS41LDAuNiwyLjl2MC45YzAsMS4zLTAuMiwyLjMtMC42LDIuOQ0KCQkJCWMtMC40LDAuNi0xLDAuOS0xLjksMC45aC0yMi40djIyLjVjMCwwLjgtMC4zLDEuNS0wLjksMS45Yy0wLjYsMC40LTEuNiwwLjYtMi45LDAuNmgtMC45QzExMS43LDE0NC40LDExMC44LDE0NC4yLDExMC4yLDE0My44eiINCgkJCQkvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo="></span><span
+                          class="dso-tile-link">Andere werkzaamheden</span></a></div>
+                  </portal-start-werkzaamheid><!----></div>
+              </portal-werkzaamheden-bar><!----></div>
+          </div>
+        </div><!---->
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="dso-highlight-box dso-white dso-drop-shadow"><img alt="" aria-hidden="true"
+            class="dso-highlight-box-banner dso-highlight-box-banner-image-ratio"
+            src="img/aanvragen.jpg">
+          <div class="dso-rich-content">
+            <h2>Vergunningaanvraag, melding of informatie indienen</h2>
+            <p>Weet u al voor welke activiteiten u een vergunning moet aanvragen, een
+              melding moet doen of informatie moet geven? Dan kunt u direct starten.</p><a class="dso-secondary"
+              href=""><span>Aanvragen</span><dso-icon icon="chevron-right" class="hydrated"></dso-icon></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="dso-highlight-box dso-white dso-drop-shadow"><img alt="" aria-hidden="true"
+            class="dso-highlight-box-banner dso-highlight-box-banner-image-ratio"
+            src="img/regels-op-kaart.jpg">
+          <div class="dso-rich-content">
+            <h2>Bekijk de regels op de kaart op uw locatie</h2>
+            <p>In Regels op de kaart vindt u de regels van alle overheden bij elkaar. U
+              kunt ook plannen van de overheid bekijken voor de toekomst </p><a class="dso-secondary"
+              href=""><span>Regels op de
+                kaart</span><dso-icon icon="chevron-right" class="hydrated"></dso-icon></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="dso-highlight-box dso-white dso-drop-shadow"><img alt="" aria-hidden="true"
+            class="dso-highlight-box-banner dso-highlight-box-banner-image-ratio"
+            src="img/maatregelen-op-maat.jpg">
+          <div class="dso-rich-content">
+            <h2>Maatregelen voor bedrijven en burgers</h2>
+            <p>Welke algemene regels gelden er voor uw bedrijf, huis of project? Krijg een
+              overzicht van de maatregelen waarmee u aan de regels kunt voldoen.</p><a class="dso-secondary"
+              href=""><span>Maatregelen op
+                maat</span><dso-icon icon="chevron-right" class="hydrated"></dso-icon></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="dso-highlight-box dso-white dso-drop-shadow"><img alt="" aria-hidden="true"
+            class="dso-highlight-box-banner dso-highlight-box-banner-image-ratio"
+            src="img/verken-uw-idee.jpg">
+          <div class="dso-rich-content">
+            <h2>Uw idee verkennen</h2>
+            <p>Heeft u een idee voor een project dat u wilt verkennen? Of heeft u een plan,
+              maar wilt u eerst de mogelijkheden bespreken? Overleg hierover met bijvoorbeeld uw gemeente of waterschap.
+            </p><a class="dso-secondary" href=""><span>Verken uw idee</span><dso-icon icon="chevron-right"
+                class="hydrated"></dso-icon></a>
+          </div>
+        </div>
+      </div><!---->
+    </div>
+    <div class="row dso-equal-heights">
+      <div class="col-md-4 col-sm-6">
+        <div class="dso-highlight-box dso-border">
+          <h3>Heeft u een vraag?</h3>
+          <p>Het snelste antwoord op uw vragen vindt u in ons Helpcentrum. Wij hebben de
+            veelgestelde vragen per thema voor u op een rij gezet.</p><a class="dso-tertiary btn-align"
+            href=""><dso-icon icon="chevron-right" class="hydrated"></dso-icon> Helpcentrum </a>
+        </div>
+      </div><!---->
+    </div>
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a><!----><!---->
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a><!----><!----></li><!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a><!----><!----></li>
+            <!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p><!---->
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p><!---->
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a><!----><!----></li>
+                <!---->
+              </ul><!---->
+            </div>
+          </div><!----><!---->
+        </div><!---->
+      </div>
+    </footer>
+  </main>
+
+
+  <script src="vcheck-common.js"></script>
+</body>
+
+</html>

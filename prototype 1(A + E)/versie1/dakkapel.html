@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'home.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html' },
+        { label: 'Aanvragen' },
+        { label: 'Regels op de kaart' },
+        { label: 'Maatregelen op maat' },
+      ];
+    </script>
+    <div class="row dso-banner dso-banner-implementation-specific-image"
+      style="background-image: url(&quot;https://pre-dso.iprox.nl/cmis/asset/site-28-dso-toolkit-44-0-web/item-1993-v82/dakkapel-hero.png&quot;);">
+      <div class="col-md-6">
+        <dso-highlight-box white="" drop-shadow>
+          <div class="dso-rich-content">
+            <h1>Dakkapel plaatsen</h1>
+            <p>Dat mag niet overal zomaar. Doe de Vergunningcheck. Zo weet u of u een vergunning nodig heeft, een
+              melding moet doen of informatie moet geven.</p>
+          </div>
+        </dso-highlight-box>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+
+        <dso-highlight-box white="" drop-shadow="">
+          <div class="dso-rich-content">
+            <h2>Een snelle start</h2>
+            <form class="vertical">
+              <div class="form-group dso-form-group-search-bar   ">
+                <div class="dso-label-container">
+                  <label class="control-label" for="mijn-zoekterm"> Locatie </label>
+
+
+                </div>
+                <div class="dso-field-container">
+
+                  <div class="dso-search-bar   ">
+                    <div class="dso-search-bar-input">
+                      <span class="dso-search-icon" aria-hidden="true"></span>
+                      <input type="text" id="mijn-zoekterm-search" placeholder="Postcode, straatnaam, adres">
+                      <button type="button">Zoekopdracht legen</button>
+                    </div>
+                    <button class="dso-secondary  sr-only ">Zoeken</button>
+                  </div>
+
+                </div>
+              </div>
+              <p>Beantwoord de vragen zodat we de check voor u kunnen personaliseren</p>
+              <fieldset class="form-group dso-radios dso-inline" aria-errormessage="mijn-id-error-text">
+                <legend class="sr-only">Gaat u ook sloop werkzaamheden uitvoeren?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Gaat u ook sloop werkzaamheden uitvoeren?</span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="slopen-ja" value="ja">
+                    Ja
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="slopen-nee" value="nee">
+                    Nee
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-radios dso-inline" aria-errormessage="mijn-id-error-text">
+                <legend class="sr-only">Gaat u een bouwsteiger plaatsen of een container neerzetten?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Gaat u een bouwsteiger plaatsen of een container
+                    neerzetten?</span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="container-ja" value="ja">
+                    Ja
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="container-nee" value="nee">
+                    Nee
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-radios dso-inline" aria-errormessage="mijn-id-error-text">
+                <legend class="sr-only">Wordt de dakkapel op een monument geplaatst?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Wordt de dakkapel op een monument geplaatst? </span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="monument-ja" value="ja">
+                    Ja
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="monument-nee" value="nee">
+                    Nee
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <a href="werkzaamheden.html" class="dso-primary">
+                <span>Begin met de vergunningcheck</span>
+              </a>
+            </form>
+          </div>
+        </dso-highlight-box>
+
+        <dso-accordion variant="compact">
+
+          <dso-accordion-section heading="h2" handle-title="Dakkapel of dakopbouw?" open>
+            <div class="dso-rich-content">
+              <p>Soms lijkt wat u wilt plaatsen op een dakkapel, maar is het volgens de bouwregels een dakopbouw. Voor
+                een dakopbouw gelden andere regels. En heeft u vaak ook een andere vergunning nodig. <img
+                  src="img/dakkapel_vs_dakopbouw.png" alt="dakkapel_vs_dakopbouw"></p>
+              <p><em>Voorbeeld dakkapel (links) en dakopbouw (rechts).</em></p>
+              <h4>Dakkapel</h4>
+              <ul>
+                <li><span class="langBlock" lang="NL-NL">Een dakkapel is een kleine uitbouw op een schuin dak.</span>
+                </li>
+                <li><span class="langBlock" lang="NL-NL">Een dakkapel komt nooit boven het hoogste punt van het schuine
+                    dak uit.</span></li>
+                <li>Het is ook een dakkapel als de voorkant gelijk op of boven de gevel begint. De dakgoot loopt dan
+                  vaak langs de onderrand van de dakkapel.</li>
+              </ul>
+              <h4>Dakopbouw</h4>
+              <ul>
+                <li>Een dakopbouw is een extra stuk bovenop het dak van een huis.</li>
+                <li>Het geeft extra ruimte, bijvoorbeeld voor een slaapkamer of badkamer.</li>
+                <li>Een dakopbouw is groter dan een dakkapel.</li>
+                <li>Het kan boven het dak uitsteken of zelfs hoger zijn dan het hoogste punt van het dak.</li>
+              </ul>
+              <p>Gaat u een dakopbouw plaatsen?&nbsp;Dan selecteert u een andere werkzaamheid. Meer informatie vindt u
+                op de pagina&nbsp;<a href="" class=""><strong>Woning verbouwen</strong>.<span class="sr-only"> (opent in
+                    nieuw venster)</span></a>
+              </p>
+            </div>
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h2" handle-title="Deze vragen kunt u verwachten">
+            <div class="dso-rich-content">
+              <p>Dit zijn voorbeelden van vragen die u kunt krijgen in de Vergunningcheck:</p>
+              <ul>
+                <li>Waar wilt u een dakkapel plaatsen? Aan de voorkant, achterkant of zijkant van het dak?</li>
+                <li>Op wat voor dak? Is het dak schuin of plat?</li>
+                <li>Hoe groot wordt de dakkapel? Bijvoorbeeld wat wordt de hoogte, breedte en afstand tot de dakrand.
+                </li>
+                <li>Staat het gebouw in een beschermd gebied of is het een monument?</li>
+              </ul>
+              <p>Afhankelijk van uw locatie en situatie kunt u&nbsp;ook andere vragen krijgen.</p>
+            </div>
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h2" handle-title="Meerdere overheden stellen vragen over een dakkapel">
+            <div class="dso-rich-content">
+              <p>Of u een vergunning nodig heeft voor een dakkapel hangt af van waar en hoe u deze plaatst.
+                Verschillende overheden kunnen regels stellen:</p>
+              <ul>
+                <li>De gemeente heeft regels voor gebouwen en woningen in haar gebied. Bijvoorbeeld hoe groot een
+                  dakkapel mag worden.</li>
+                <li>De rijksoverheid heeft regels&nbsp;voor beschermde dieren.</li>
+                <li>De provincie kan regels hebben voor specifieke gebieden, zoals natuurgebieden, provinciale wegen of
+                  andere beschermde zones.</li>
+              </ul>
+              <p>Meerdere overheden kunnen dus samen bepalen wat mag. Meestal is dat uw gemeente of waterschap. Maar
+                soms is dat de provincie of Rijksoverheid. Daardoor kunt u vragen krijgen van verschillende overheden.
+                Soms heeft u ook van meerdere overheden toestemming nodig.</p>
+            </div>
+          </dso-accordion-section>
+
+        </dso-accordion>
+
+      </div>
+      <div class="col-md-5">
+        <div>
+          <div>
+            <h2>De stappen</h2>
+            <p>De Vergunningcheck duurt ongeveer 15 tot 30 minuten.<br>U kunt tussendoor opslaan en later verdergaan.
+            </p>
+            <ol class="dso-action-list">
+              <li class="">
+                <h3>Kies de locatie</h3>Geef aan waar u de werkzaamheden wilt uitvoeren.
+              </li>
+              <li>
+                <h3>Kies de werkzaamheden</h3>Selecteer wat u wilt doen binnen uw project.
+              </li>
+              <li>
+                <h3>Beantwoord de vragen</h3>Doorloop de check en beantwoord de vragen.<br>Vragen die voor uw situatie
+                niet gelden, vallen&nbsp;automatisch weg.
+              </li>
+              <li>
+                <h3>Bekijk het resultaat</h3>U krijgt een overzicht waarin u ziet of u een vergunning moet aanvragen,
+                een melding moet doen of informatie moet doorgeven.
+              </li>
+              <li>
+                <h3>Start een aanvraag</h3>Wilt u meteen aanvragen? Dan kunt u direct door vanuit de
+                Vergunningcheck.<br>Uw locatie en activiteiten worden dan automatisch overgenomen.
+              </li>
+            </ol>
+
+            <div class="dso-highlight-box dso-white dso-border">
+              <div class="dso-rich-content">
+                <h2>Vragen?</h2>
+                <p>Vragen over uw vergunning of melding? Neem contact op met uw gemeente of waterschap.</p>
+                <p>Vragen over hoe het Omgevingsloket werkt? Kijk in het<a href="" class="">&nbsp;Helpcentrum.<span
+                      class="sr-only"> (opent in nieuw venster)</span></a></p>
+              </div>
+            </div>
+          </div>
+        </div><!---->
+      </div>
+    </div>
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a><!----><!---->
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a><!----><!----></li><!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a><!----><!----></li>
+            <!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p><!---->
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p><!---->
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a><!----><!----></li>
+                <!---->
+              </ul><!---->
+            </div>
+          </div><!----><!---->
+        </div><!---->
+      </div>
+    </footer>
+  </div>
+
+
+  <script>
+    window.VCHECK_CONFIG = {
+      hoofdWerkzaamheid: 'Dakkapel plaatsen, vervangen of veranderen',
+    };
+  </script>
+  <script src="vcheck-common.js"></script>
+</body>
+
+</html>

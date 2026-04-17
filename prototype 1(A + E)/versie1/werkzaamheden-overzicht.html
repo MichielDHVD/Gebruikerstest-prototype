@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vergunningcheck – Werkzaamheden</title>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+
+</head>
+
+<body class="pagina-overzicht">
+
+
+
+  <!-- Main -->
+  <div class="container">
+    <!-- Header -->
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <div id="wizard">
+      <div class="dso-app-heading">
+        <h1>Vergunningcheck</h1>
+        <h2 id="step-indicator" class="dso-steps-indicator">2. Kies werkzaamheden - overzicht<span class="dso-step">Stap
+            2/4</span></h2>
+      </div>
+      <form class="form-horizontal">
+        <div class="row form-group">
+          <div class="col-xs-12">
+            <div id="mijn-winkelmandje">
+            </div>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-xs-12"><button id="werkzaamheden-add-button" class="btn dso-secondary "
+              type="button" onclick="gaNaarWerkzaamheden()"><dso-icon icon="plus" class="hydrated"></dso-icon><span><span>Werkzaamheid
+                  toevoegen</span></span></button></div>
+        </div>
+        <div class="dso-form-buttons">
+          <div class="dso-aside"><button id="back-button-bottom" class="btn dso-tertiary" type="button"
+              data-testid="back-button-bottom" onclick="gaNaarVorigeVanuitOverzicht()"><dso-icon class="hydrated"
+                icon="chevron-left"></dso-icon><span>Vorige</span></button></div>
+          <button id="save-check-from-wizard" class="btn dso-secondary " type="button"><dso-icon icon="user-solid"
+              class="hydrated"></dso-icon><span>Vergunningcheck opslaan</span></button><button id="next-button-bottom"
+            class="btn dso-primary " type="button" data-testid="next-button-bottom" onclick="gaNaarVragen()"><span>Volgende stap</span><dso-icon
+              icon="chevron-right" class="hydrated"></dso-icon></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="vcheck-common.js"></script>
+
+</body>
+
+</html>

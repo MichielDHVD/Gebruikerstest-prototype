@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vergunningcheck – Werkzaamheden</title>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+
+</head>
+
+<body>
+
+
+
+  <!-- Main -->
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="dso-app-heading">
+          <h1>Vergunningcheck - Genooyerweg 17, Venlo </h1>
+          <h2 class="dso-steps-indicator">2. Kies werkzaamheden <span class="dso-step">Stap 2/4</span></h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="dso-highlight-box">
+              <div class="dso-search-bar">
+                <div class="dso-search-bar-input">
+                  <label for="searchInput">Zoek uw werkzaamheden</label>
+                  <span class="dso-search-icon" aria-hidden="true"></span>
+                  <input type="text" id="searchInput"
+                    placeholder="Bijv: &apos;dakkapel&apos;, &apos;agrarisch&apos; of &apos;38.32.2&apos;...">
+                  <button type="button">Zoekopdracht legen</button>
+                </div>
+                <button class="dso-secondary sr-only">Zoeken</button>
+              </div>
+            </div>
+            <div class="dso-context-wrapper">
+              <span class="dso-context-label">
+                <h4 id="resultsCount"></h4>
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="dso-label-group">
+                  <ul id="active-filters-list"></ul>
+                </div>
+              </div>
+            </div>
+            <div id="resultsList" ></div>
+
+            <dso-pagination total-pages="1" current-page="1"></dso-pagination>
+
+            <div class="volgende-knop">
+              <a href="locatie.html" style="margin-left:16px;" class="dso-tertiary"> Terug</a>
+              <button type="button" class="dso-primary dso-button" onclick="slaOpEnGaNaarExtraBoomOfGarage()">
+                Volgende stap &rsaquo;
+              </button>
+
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div id="mijn-winkelmandje">
+            </div>
+
+            <fieldset class="dso-form-group-collection">
+              <legend>
+                <h3>Filters</h3>
+              </legend>
+              <fieldset class="form-group dso-checkboxes   ">
+                <legend class="sr-only">Voor wie is het?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Voor wie is het?</span>
+                </div>
+                <div class="dso-field-container">
+
+                  <dso-selectable type="checkbox" identifier="checkbox_25" value="25">
+                    Voor uzelf <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_24" value="24">
+                    Voor uw bedrijf <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_26" value="26">
+                    Voor uzelf + bedrijf <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_21" value="21">
+                    Voor de buurt/gemeente <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_22" value="22">
+                    Voor de overheid <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_23" value="23">
+                    Voor het publiek <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+
+
+
+
+
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-checkboxes   ">
+                <legend class="sr-only">Waar wilt u dit doen?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Waar wilt u dit doen?</span>
+                </div>
+                <div class="dso-field-container">
+
+                  <dso-selectable type="checkbox" identifier="checkbox_14" value="14">
+                    Eigen woning of tuin <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
+                    Bedrijfslocatie
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_112" value="112">
+                    Water (sloot, vijver, rivier) <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
+                    Agrarisch terrein <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+                  <dso-selectable type="checkbox" identifier="checkbox_13" value="13">
+                    Buitenlocatie <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+
+                  <dso-selectable type="checkbox" identifier="checkbox_15" value="15">
+                    Grondwaterlocaties <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_16" value="16">
+                    Militaire locatie <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_17" value="17">
+                    Natuurgebied <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_18" value="18">
+                    Openbare ruimte (markt, evenement) <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_19" value="19">
+                    Openbare ruimte (straat, plein, park) <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_110" value="110">
+                    Specifieke locatie (brandweer, politiebureau) <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_111" value="111">
+                    Vakantiepark recreatieterrein <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+                  <dso-selectable type="checkbox" identifier="checkbox_113" value="113">
+                    Zeehaven <span class="filter-count"></span>
+
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-checkboxes   ">
+                <legend class="sr-only">Bestuurslaag</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Wat wilt u doen?</span>
+                </div>
+                <div class="dso-field-container">
+
+                  <dso-selectable type="checkbox" identifier="checkbox_3" value="3">
+                    Bouwen of verbouwen <span class="filter-count"></span>
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
+                    Sloopwerkzaamheden <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_9" value="9">
+                    Onderhoud en reperatie <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_12" value="13">
+                    Tuin of erf aanpassen <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
+                    Sloopwerkzaamheden of grondwerkzaamheden <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_1" value="1">
+                    Afvalbeheer en Recycling <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_2" value="2">
+                    Bedrijf starten of veranderen <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+
+                  <dso-selectable type="checkbox" identifier="checkbox_4" value="4">
+                    Chemische en Industriële Producten <span class="filter-count"></span>
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_5" value="5">
+                    Dieren houden <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_6" value="6">
+                    Energie en gas <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_7" value="7">
+                    Evenement organiseren <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+                  <dso-selectable type="checkbox" identifier="checkbox_8" value="8">
+                    Grondwerkzaamheden en funderingen <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+
+                  <dso-selectable type="checkbox" identifier="checkbox_10" value="10">
+                    Overige activiteiten <span class="filter-count"></span>
+
+                  </dso-selectable>
+
+
+
+
+
+
+                </div>
+              </fieldset>
+
+
+
+
+
+
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.VCHECK_CONFIG = { navigatieVolgende: 'extra-werkzaamheden.html' };
+    </script>
+    <script src="vcheck-common.js"></script>
+    <script>
+      // De JSON data uit je bestand
+      const excelData = [
+        {
+          "Werkzaamheid": "As uitstrooien",
+          "Wat wilt u doen? (Type activiteit)": "Tuin of erf aanpassen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Asfalt of asfaltproducten maken",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Asfalt- en bitumenproducten maken",
+          "SBI-code": "23.99.1"
+        },
+        {
+          "Werkzaamheid": "Auto's of andere gemotoriseerde voertuigen onderhouden of repareren",
+          "Wat wilt u doen? (Type activiteit)": "",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud en reparatie van motorvoertuigen",
+          "SBI-code": "45.20.1"
+        },
+        {
+          "Werkzaamheid": "Autowrakken shredderen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Afvalverwerking",
+          "Subcategorie (SBI)": "Verwerking van oud metaal",
+          "SBI-code": "38.32.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat afvalstoffen opslaat, scheidt, samenperst of mengt",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Afvalverwerking",
+          "SBI-code": "38.21.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat afvalwater zuivert",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Waterbeheer",
+          "Subcategorie (SBI)": "Waterzuiveringsbedrijf",
+          "SBI-code": "36.00.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat drinkwater bereidt voor het openbare drinkwaternet",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Waterbeheer",
+          "Subcategorie (SBI)": "Levering van water",
+          "SBI-code": "36.00.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat gewassen teelt in de openlucht",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Teelt van gewassen in de openlucht",
+          "SBI-code": "01.11.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat gewassen teelt in een gebouw",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw",
+          "Subcategorie (SBI)": "Teelt in een gebouw",
+          "SBI-code": "01.41.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat mest behandelt of verwerkt",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Verwerking van mest",
+          "SBI-code": "02.10.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat onderhoud uitvoert in de openbare ruimte",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat pyrolyseolie maakt",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Verwerking van olieproducten",
+          "SBI-code": "19.20.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat schepen of jachten bouwt, onderhoudt of repareert",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Schepen en jachten onderhoud",
+          "SBI-code": "30.11.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat tanks reinigt",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud van tanks",
+          "SBI-code": "38.32.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat waterplanten of waterdieren teelt of kweekt",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Autoberging en pechhulp",
+          "SBI-code": "52.29.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf dat werktuigen met een motor repareert of verhuurt",
+          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud en verhuur van werktuigen",
+          "SBI-code": "77.33.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf in de chemische industrie",
+          "Wat wilt u doen? (Type activiteit)": "Chemische en Industriële Producten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Chemische industrie",
+          "SBI-code": "20.11.1"
+        },
+        {
+          "Werkzaamheid": "Bedrijf voor autoberging en pechhulp",
+          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Pechhulp en autoberging",
+          "SBI-code": "52.29.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf voor de destructie of het verwerken van kadavers of dierlijk afval",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Dierlijk afval verwerking",
+          "SBI-code": "38.31.2"
+        },
+        {
+          "Werkzaamheid": "Bedrijf voor de recycling van papier, karton, textiel, glas, hout of puin",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Afvalverwerking en recycling",
+          "Subcategorie (SBI)": "Recycling van diverse materialen",
+          "SBI-code": "38.32.1"
+        },
+        {
+          "Werkzaamheid": "Begraafplaats aanleggen, gebruiken of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Benzineterminal exploiteren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Opslag",
+          "Subcategorie (SBI)": "Opslag en distributie van brandstoffen",
+          "SBI-code": "52.21.2"
+        },
+        {
+          "Werkzaamheid": "Beroep of bedrijf aan huis uitoefenen",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Beschoeiing of grondkering aanbrengen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bestaand civiel kunstwerk aanpassen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bestaand gebouw verbouwen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Betonmortel maken",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Productie van betonmortel",
+          "SBI-code": "23.63.2"
+        },
+        {
+          "Werkzaamheid": "Betonproducten maken",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Betonproducten maken",
+          "SBI-code": "23.61.1"
+        },
+        {
+          "Werkzaamheid": "Bodemenergiesysteem aanleggen, gebruiken of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf +Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Boom of beplanting onderhouden of weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Tuin of erf aanpassen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Boom planten of beplanting aanbrengen",
+          "Wat wilt u doen? (Type activiteit)": "Tuin of erf aanpassen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Boot schoonmaken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Reiniging van schepen",
+          "SBI-code": "33.16.3"
+        },
+        {
+          "Werkzaamheid": "Boothelling aanleggen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Bouw van infrastructuur voor schepen",
+          "SBI-code": "42.91.1"
+        },
+        {
+          "Werkzaamheid": "Bouwbedrijf, installatiebedrijf, grondbedrijf, wegenbouwbedrijf, waterbouwbedrijf of schildersbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Algemene bouw- en installatiebedrijven",
+          "SBI-code": "41.20.1"
+        },
+        {
+          "Werkzaamheid": "Bouwmateriaal, container of ander object tijdelijk plaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bouwplaats inrichten",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Inrichten van bouwplaatsen",
+          "SBI-code": "43.12.1"
+        },
+        {
+          "Werkzaamheid": "Bouwstoffen aanbrengen of verplaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "SBI-code": "43.12.2"
+        },
+        {
+          "Werkzaamheid": "Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bouwwerk onderhouden",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bouwwerk reinigen of conserveren, of graffiti verwijderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bouwwerk voor agrarische bedrijfsvoering bouwen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Bouw van agrarische bedrijfsgebouwen",
+          "SBI-code": "01.41.1"
+        },
+        {
+          "Werkzaamheid": "Bouwwerk voor een infrastructurele of openbare voorziening plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Brandstof tanken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Brandstoffenhandel of tankopslagbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Opslag",
+          "Subcategorie (SBI)": "Opslag van brandstoffen",
+          "SBI-code": "46.71.2"
+        },
+        {
+          "Werkzaamheid": "Brandweeroefenterrein",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Veiligheid en Noodhulp",
+          "Subcategorie (SBI)": "Brandweeroefening",
+          "SBI-code": "84.25.1"
+        },
+        {
+          "Werkzaamheid": "Brug aanpassen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Brug plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Brug weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Buiten de openbare weg rijden met auto of motor",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Bunkerstation of ander bedrijf met tankplaats voor schepen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en water",
+          "Subcategorie (SBI)": "Tankstations voor schepen",
+          "SBI-code": "52.22.2"
+        },
+        {
+          "Werkzaamheid": "Calamiteitenoefening houden",
+          "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Civiel kunstwerk aanleggen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Civiel kunstwerk weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Cokesfabriek",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Cokesfabrieken",
+          "SBI-code": "19.10.0"
+        },
+        {
+          "Werkzaamheid": "Constructie bouwen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Bouwen van gebouwen",
+          "SBI-code": "41.10.1"
+        },
+        {
+          "Werkzaamheid": "Constructie weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Sloop van gebouwen",
+          "SBI-code": "43.11.1"
+        },
+        {
+          "Werkzaamheid": "Container voor het inzamelen van huishoudelijk afval",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Crematorium",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Gezondheidszorg en Uitvaart",
+          "Subcategorie (SBI)": "Crematie en begrafenisondernemers",
+          "SBI-code": "96.03.0"
+        },
+        {
+          "Werkzaamheid": "Dakkapel plaatsen, vervangen of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Dakraam plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Dam of duiker weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden of Grondwerkzaamheden?",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Dam, duiker, of dam met duiker aanleggen of aanpassen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Datacentrum",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Informatie en Communicatie",
+          "Subcategorie (SBI)": "Datacentrum",
+          "SBI-code": "62.01.2"
+        },
+        {
+          "Werkzaamheid": "Demontagebedrijf voor auto's, scooters of andere gemotoriseerde voertuigen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Verwerking van auto's",
+          "SBI-code": "38.32.2"
+        },
+        {
+          "Werkzaamheid": "Detailhandel of ambachtsbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Detailhandel",
+          "Subcategorie (SBI)": "Ambachtswinkels en kunstnijverheid",
+          "SBI-code": "47.71.2"
+        },
+        {
+          "Werkzaamheid": "Dieren houden, fokken of trainen",
+          "Wat wilt u doen? (Type activiteit)": "Dieren houden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Dieren slachten of slachtproducten verwerken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en Voeding",
+          "Subcategorie (SBI)": "Vleesverwerking",
+          "SBI-code": "10.11.1"
+        },
+        {
+          "Werkzaamheid": "Dijk of andere waterkering aanleggen of verleggen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Waterkeringen en dijken",
+          "SBI-code": "42.91.1"
+        },
+        {
+          "Werkzaamheid": "Drinkwater voor vee bereiden",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Drinkwater voor vee",
+          "SBI-code": "01.42.0"
+        },
+        {
+          "Werkzaamheid": "Energiecentrale",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Opwekking van energie",
+          "SBI-code": "35.11.1"
+        },
+        {
+          "Werkzaamheid": "Evenement organiseren",
+          "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Fauna-uitstapplaats aanleggen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Fauna-uitstapplaats weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Fotomateriaal ontwikkelen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Fotografie en beeldverwerking",
+          "SBI-code": "74.20.1"
+        },
+        {
+          "Werkzaamheid": "Frontmuur aanbrengen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Frontmuur weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Fruit sorteren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Verwerken en sorteren van fruit",
+          "SBI-code": "01.49.9"
+        },
+        {
+          "Werkzaamheid": "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
+          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud en reparatie van motorvoertuigen",
+          "SBI-code": "45.20.2"
+        },
+        {
+          "Werkzaamheid": "Gas opslaan in een opslagtank",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Opslag van gas",
+          "SBI-code": "19.20.1"
+        },
+        {
+          "Werkzaamheid": "Gasflessen vullen met propaan of butaan",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Gasverwerking en -opslag",
+          "SBI-code": "19.20.2"
+        },
+        {
+          "Werkzaamheid": "Gebruik van kabel of leiding veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Installatie van infrastructuur",
+          "SBI-code": "43.21.1"
+        },
+        {
+          "Werkzaamheid": "Gebruikte potgrond of ander gebruikt substraatmateriaal opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Opslag van materialen",
+          "SBI-code": "38.32.3"
+        },
+        {
+          "Werkzaamheid": "Gedemonteerde autowrakken opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Opslag",
+          "Subcategorie (SBI)": "Opslag van auto-onderdelen",
+          "SBI-code": "77.12.1"
+        },
+        {
+          "Werkzaamheid": "Geen bedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Geluidsinstallatie of ander apparaat met veel geluid gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Gemotoriseerde voertuigen wassen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud van voertuigen",
+          "SBI-code": "45.20.2"
+        },
+        {
+          "Werkzaamheid": "Genetisch gemodificeerde organismen gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Wetenschap en Onderzoek",
+          "Subcategorie (SBI)": "Biotechnologisch onderzoek",
+          "SBI-code": "72.11.1"
+        },
+        {
+          "Werkzaamheid": "Gevaarlijke stoffen opslaan in verpakking of gasflessen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Opslag van gevaarlijke stoffen",
+          "SBI-code": "38.21.3"
+        },
+        {
+          "Werkzaamheid": "Gevel isoleren, gevelpaneel vervangen of andere werkzaamheden aan de gevel uitvoeren",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Gewassen spoelen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Verwerken van gewassen",
+          "SBI-code": "01.49.9"
+        },
+        {
+          "Werkzaamheid": "Gietwater bereiden",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Waterbeheer",
+          "Subcategorie (SBI)": "Waterzuivering en behandeling",
+          "SBI-code": "36.00.3"
+        },
+        {
+          "Werkzaamheid": "Glastuinbouwbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Glastuinbouw",
+          "SBI-code": "01.41.1"
+        },
+        {
+          "Werkzaamheid": "Grasland scheuren of vernietigen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Vernietigen van grasland",
+          "SBI-code": "01.61.1"
+        },
+        {
+          "Werkzaamheid": "Graven in bodem of waterbodem",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Groenafval opslaan en composteren",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Composteren en afvalverwerking",
+          "SBI-code": "38.22.0"
+        },
+        {
+          "Werkzaamheid": "Groepen mensen ontvangen of huisvesten in een gebouw of op een terrein",
+          "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Grond of baggerspecie opslaan, aanbrengen of verplaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Grondverwerking en baggeren",
+          "SBI-code": "43.12.2"
+        },
+        {
+          "Werkzaamheid": "Grond ontwateren",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Grondontwatering",
+          "SBI-code": "43.12.1"
+        },
+        {
+          "Werkzaamheid": "Grondbank of grondreinigingsbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Grondverwerking",
+          "SBI-code": "38.21.3"
+        },
+        {
+          "Werkzaamheid": "Grondboring of sondering uitvoeren",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Grondboringen en sonderingen",
+          "SBI-code": "43.12.1"
+        },
+        {
+          "Werkzaamheid": "Grondwater onttrekken",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Grondwateronttrekking",
+          "SBI-code": "43.12.1"
+        },
+        {
+          "Werkzaamheid": "Groothandel, opslagbedrijf of distributiebedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Handel en Distributie",
+          "Subcategorie (SBI)": "Groothandel en opslag",
+          "SBI-code": "46.90.0"
+        },
+        {
+          "Werkzaamheid": "Schutting of andere afscheiding plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Schutting of andere afscheiding weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Hijswerkzaamheden uitvoeren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Hijsen en tillen van materialen",
+          "SBI-code": "43.99.9"
+        },
+        {
+          "Werkzaamheid": "Horecabedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Horeca en Toerisme",
+          "Subcategorie (SBI)": "Restaurants en eetgelegenheden",
+          "SBI-code": "56.10.0"
+        },
+        {
+          "Werkzaamheid": "Horecaterras plaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Horeca en Toerisme",
+          "Subcategorie (SBI)": "Buiten horeca- en eetgelegenheden",
+          "SBI-code": "56.29.1"
+        },
+        {
+          "Werkzaamheid": "Installatie voor het behandelen, regelen of meten van aardgas",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Gasinstallaties",
+          "SBI-code": "43.22.1"
+        },
+        {
+          "Werkzaamheid": "Installatie voor koelen of vriezen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Installaties voor koeling",
+          "SBI-code": "43.21.2"
+        },
+        {
+          "Werkzaamheid": "Insteekhaven of langshaven aanleggen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Havenbouw",
+          "SBI-code": "42.91.2"
+        },
+        {
+          "Werkzaamheid": "Jachthaven",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Haveninfrastructuur voor jachten",
+          "SBI-code": "52.22.2"
+        },
+        {
+          "Werkzaamheid": "Jagen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Kabel of leiding leggen, verplaatsen, vervangen of repareren",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Leidingwerk en kabels",
+          "SBI-code": "42.22.1"
+        },
+        {
+          "Werkzaamheid": "Kabel of leiding weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Sloopwerkzaamheden",
+          "SBI-code": "43.11.2"
+        },
+        {
+          "Werkzaamheid": "Kantoor of ander verblijfsgebouw",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Bouw van verblijfsgebouwen",
+          "SBI-code": "41.10.1"
+        },
+        {
+          "Werkzaamheid": "Koelwater lozen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
+          "Subcategorie (SBI)": "Lozen van koelwater",
+          "SBI-code": "36.00.1"
+        },
+        {
+          "Werkzaamheid": "Kooldioxide afvangen voor ondergrondse opslag",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "CO2-opslag",
+          "SBI-code": "39.00.2"
+        },
+        {
+          "Werkzaamheid": "Kratten of andere verpakkingen voor gewassen schoonmaken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Verpakkingen schoonmaken",
+          "SBI-code": "01.49.9"
+        },
+        {
+          "Werkzaamheid": "Kuilvoer of bijvoedermiddelen opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Opslaan van voedermiddelen",
+          "SBI-code": "01.42.0"
+        },
+        {
+          "Werkzaamheid": "Kunstlicht gebruiken in een kas",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Kunstlicht in de kas",
+          "SBI-code": "01.41.1"
+        },
+        {
+          "Werkzaamheid": "Kunstmest opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Opslaan van kunstmest",
+          "SBI-code": "20.15.2"
+        },
+        {
+          "Werkzaamheid": "Laad en loskade voor schepen aanleggen, inrichten of aanpassen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
+          "Subcategorie (SBI)": "Haveninrichting en aanpassingen",
+          "SBI-code": "42.91.2"
+        },
+        {
+          "Werkzaamheid": "Laad en loskade voor schepen weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Verwijderen van laad- en loskades",
+          "SBI-code": "43.11.2"
+        },
+        {
+          "Werkzaamheid": "Laadpaal plaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Laboratorium of praktijkruimte",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Gezondheidszorg en Onderzoek",
+          "Subcategorie (SBI)": "Wetenschappelijk onderzoek en praktijken",
+          "SBI-code": "86.23.0"
+        },
+        {
+          "Werkzaamheid": "Landbouwmechanisatiebedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Mechanisatie in de landbouw",
+          "SBI-code": "28.30.0"
+        },
+        {
+          "Werkzaamheid": "Landbouwvoertuigen of landbouwwerktuigen schoonmaken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Onderhoud van landbouwvoertuigen",
+          "SBI-code": "33.11.2"
+        },
+        {
+          "Werkzaamheid": "Landingsplaats voor helikopters gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Landingsplaatsen voor luchtverkeer",
+          "SBI-code": "52.23.0"
+        },
+        {
+          "Werkzaamheid": "Leiding schoonmaken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Infrastructuuronderhoud",
+          "SBI-code": "43.21.1"
+        },
+        {
+          "Werkzaamheid": "Lozingsvoorziening aanleggen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
+          "Subcategorie (SBI)": "Aanleg of vervanging van lozingsvoorzieningen",
+          "SBI-code": "36.00.1"
+        },
+        {
+          "Werkzaamheid": "Lozingsvoorziening aanpassen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
+          "Subcategorie (SBI)": "Aanpassen van lozingsvoorzieningen",
+          "SBI-code": "36.00.1"
+        },
+        {
+          "Werkzaamheid": "Lozingsvoorziening weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Verwijderen van lozingsvoorzieningen",
+          "SBI-code": "43.11.2"
+        },
+        {
+          "Werkzaamheid": "Luik, rolluik, rolhek of zonwering plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Maden of insecten kweken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw",
+          "Subcategorie (SBI)": "Insecten- en madenkweek",
+          "SBI-code": "01.46.0"
+        },
+        {
+          "Werkzaamheid": "Magazijnstelling plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Logistiek",
+          "Subcategorie (SBI)": "Opslaginrichting",
+          "SBI-code": "43.99.9"
+        },
+        {
+          "Werkzaamheid": "Materialen drukken of bedrukken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Drukkerij en bewerking van materialen",
+          "SBI-code": "18.12.0"
+        },
+        {
+          "Werkzaamheid": "Materialen schoonmaken, lijmen of coaten",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Schoonmaken en bewerken van materialen",
+          "SBI-code": "81.22.0"
+        },
+        {
+          "Werkzaamheid": "Materialen, afval of andere goederen opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Logistiek",
+          "Subcategorie (SBI)": "Opslag en distributie",
+          "SBI-code": "52.10.0"
+        },
+        {
+          "Werkzaamheid": "Mest op of in de bodem brengen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Toepassing van meststoffen op landbouwgrond",
+          "SBI-code": "01.42.0"
+        },
+        {
+          "Werkzaamheid": "Mest van dieren opslaan",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Opslaan van mest",
+          "SBI-code": "01.42.0"
+        },
+        {
+          "Werkzaamheid": "Meststoffen, gewasbeschermingsmiddelen of biociden aanmaken en gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Landbouw en tuinbouw",
+          "Subcategorie (SBI)": "Productie van meststoffen en gewasbeschermers",
+          "SBI-code": "20.30.1"
+        },
+        {
+          "Werkzaamheid": "Metaal bewerken of behandelen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Metaalbewerking",
+          "SBI-code": "25.62.0"
+        },
+        {
+          "Werkzaamheid": "Metaalbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Metaalbewerking en verwerking",
+          "SBI-code": "25.72.0"
+        },
+        {
+          "Werkzaamheid": "Metaalrecyclingbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Afvalverwerking en recycling",
+          "Subcategorie (SBI)": "Recycling van metalen",
+          "SBI-code": "38.32.2"
+        },
+        {
+          "Werkzaamheid": "Mijnbouwwerk exploiteren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Mijnbouw",
+          "Subcategorie (SBI)": "Exploitatie van mijnbouw",
+          "SBI-code": "09.10.0"
+        },
+        {
+          "Werkzaamheid": "Mijnsteen toepassen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Mijnbouw",
+          "Subcategorie (SBI)": "Toepassing van mijnsteen",
+          "SBI-code": "08.11.0"
+        },
+        {
+          "Werkzaamheid": "Milieustraat",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Afvalverwerking",
+          "SBI-code": "38.31.1"
+        },
+        {
+          "Werkzaamheid": "Militaire kazerne",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Militaire locatie",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Militaire luchthaven",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Militaire locatie",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Militaire oefening houden",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Militaire locatie",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Militaire zeehaven",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Zeehaven",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Mobiele puinbreker gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Bouw en Constructie",
+          "Subcategorie (SBI)": "Puinverwerking",
+          "SBI-code": "43.99.9"
+        },
+        {
+          "Werkzaamheid": "Modelvliegtuig, modelboot of modelauto gebruiken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Motorrevisiebedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Revisie en onderhoud van motoren",
+          "SBI-code": "45.20.2"
+        },
+        {
+          "Werkzaamheid": "Natte koeltoren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Koeling en warmtebeheer",
+          "SBI-code": "35.30.0"
+        },
+        {
+          "Werkzaamheid": "Natuurvriendelijke oever aanleggen of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Natuurgebied",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Natuurvriendelijke oever verwijderen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Natuurgebied",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Nieuw gebouw bouwen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Nieuw kozijn plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Onderhoudswerkplaats voor autobus, trein, tram of metro",
+          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud van voertuigen",
+          "SBI-code": "33.11.0"
+        },
+        {
+          "Werkzaamheid": "Onderhoudswerkplaats voor vliegtuigen",
+          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
+          "Subcategorie (SBI)": "Onderhoud van vliegtuigen",
+          "SBI-code": "33.16.0"
+        },
+        {
+          "Werkzaamheid": "Ontplofbare stoffen of voorwerpen opslaan, herverpakken of bewerken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Veiligheid en Noodhulp",
+          "Subcategorie (SBI)": "Opslag van gevaarlijke stoffen",
+          "SBI-code": "20.52.0"
+        },
+        {
+          "Werkzaamheid": "Onttrekkingsvoorziening aanleggen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Aanleg of vervanging van onttrekkingsvoorzieningen",
+          "SBI-code": "43.12.1"
+        },
+        {
+          "Werkzaamheid": "Onttrekkingsvoorziening weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
+          "Subcategorie (SBI)": "Verwijderen van onttrekkingsvoorzieningen",
+          "SBI-code": "43.11.2"
+        },
+        {
+          "Werkzaamheid": "Oplosmiddelen gebruiken in een bedrijfsproces",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Chemische processen",
+          "SBI-code": "20.59.0"
+        },
+        {
+          "Werkzaamheid": "Paardenbak aanleggen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Parkeergarage",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Peilscheiding aanleggen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Peilscheiding verwijderen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Politie en brandweer",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Specifieke locatie (brandweer, politiebureau)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Polyesterhars verwerken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Kunststofverwerking",
+          "SBI-code": "22.21.0"
+        },
+        {
+          "Werkzaamheid": "Raffinaderij",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Verwerking van olieproducten",
+          "SBI-code": "19.20.0"
+        },
+        {
+          "Werkzaamheid": "Reclame of informatiebord plaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Recreatiesector",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor het publiek",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Regenwater lozen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Rioolwater lozen vanuit een overstort",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de buurt/gemeente",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Rubber vormgeven",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Rubberverwerking",
+          "SBI-code": "22.19.0"
+        },
+        {
+          "Werkzaamheid": "Rubberrecyclingbedrijf of kunststofrecyclingbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Recycling van rubber en kunststof",
+          "SBI-code": "22.29.0"
+        },
+        {
+          "Werkzaamheid": "Sanering of grondwatersanering uitvoeren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Grondwaterlocaties",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
+          "Subcategorie (SBI)": "Grond- en waterbodemsanering",
+          "SBI-code": "39.00.2"
+        },
+        {
+          "Werkzaamheid": "Schepen koppelen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Koppelen van schepen",
+          "SBI-code": "77.34.0"
+        },
+        {
+          "Werkzaamheid": "Schepen of drijvende werktuigen laden of lossen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Laden en lossen van schepen en werktuigen",
+          "SBI-code": "52.22.2"
+        },
+        {
+          "Werkzaamheid": "Schietbaan of militair springterrein",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Militaire locatie",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Schieten met een gasdrukwapen of laserwapen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Buitenlocatie",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Schip of ander drijvend werk afmeren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Sector voor kunst, cultuur, media en amusement",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor het publiek",
+          "Hoofdcategorie (SBI)": "Cultuur en Amusement",
+          "Subcategorie (SBI)": "Creatieve industrie",
+          "SBI-code": "90.01.0"
+        },
+        {
+          "Werkzaamheid": "Seismisch onderzoek uitvoeren",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Buitenlocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Wetenschappelijk onderzoek",
+          "Subcategorie (SBI)": "Seismisch onderzoek",
+          "SBI-code": "71.12.0"
+        },
+        {
+          "Werkzaamheid": "Seveso-inrichting",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Veiligheid",
+          "Subcategorie (SBI)": "Risicovolle industrieën",
+          "SBI-code": "84.25.1"
+        },
+        {
+          "Werkzaamheid": "Skibaan of ijsbaan",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor het publiek",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Spoorwegemplacement",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Inrichting van spoorwegemplacementen",
+          "SBI-code": "52.21.1"
+        },
+        {
+          "Werkzaamheid": "Sport- of speeltoestel plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor het publiek",
+          "Hoofdcategorie (SBI)": "Inrichting van spoorwegemplacementen",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Sporthal, sportveld of andere sportaccommodatie",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Voor wie is het?": "Voor het publiek",
+          "Hoofdcategorie (SBI)": "52.21.1",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Stacaravan, vakantiehuis of ander recreatief nachtverblijf plaatsen, veranderen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Vakantiepark, recreatieterrein",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Standplaats innemen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (markt, evenement)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Steen bewerken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Innemen van standplaatsen voor voertuigen of schepen",
+          "SBI-code": "77.34.0"
+        },
+        {
+          "Werkzaamheid": "Steiger, vlonder of aanmeervoorziening plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Steiger, vlonder of aanmeervoorziening weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Stuw plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Stuw weghalen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor de overheid",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Tankschip ontgassen tijdens de vaart",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Ontgassen van schepen",
+          "SBI-code": "77.34.0"
+        },
+        {
+          "Werkzaamheid": "Tankstation",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en Opslag",
+          "Subcategorie (SBI)": "Brandstofdistributie",
+          "SBI-code": "47.30.0"
+        },
+        {
+          "Werkzaamheid": "Textiel reinigen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Dienstverlening",
+          "Subcategorie (SBI)": "Stomerijen",
+          "SBI-code": "96.01.0"
+        },
+        {
+          "Werkzaamheid": "Textielreinigingsbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Dienstverlening",
+          "Subcategorie (SBI)": "Stomerijen",
+          "SBI-code": "96.01.0"
+        },
+        {
+          "Werkzaamheid": "Thermische energie uit water halen",
+          "Wat wilt u doen? (Type activiteit)": "Energie en Gas",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Energie en Duurzame Technologie",
+          "Subcategorie (SBI)": "Hernieuwbare energieproductie",
+          "SBI-code": "35.30.0"
+        },
+        {
+          "Werkzaamheid": "Thermoplastisch kunststof verwerken",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Kunststofverwerking",
+          "SBI-code": "22.21.0"
+        },
+        {
+          "Werkzaamheid": "Titaandioxideinstallatie",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Chemische industrie",
+          "SBI-code": "20.13.0"
+        },
+        {
+          "Werkzaamheid": "Traditioneel schieten",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Buitenlocatie",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Trap, hellingbaan of andere constructie om terreinhoogteverschillen te overbruggen, plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Tuinmeubilair plaatsen of vervangen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Uitrit aanleggen of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Vaarweg aanleggen of veranderen",
+          "Wat wilt u doen? (Type activiteit)": "Grondwerkzaamheden en funderingen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Varen met motorboot of waterscooter",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Varen met roeiboot of kano",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Vast vistuig plaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Water (sloot, vijver, rivier)",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Vee drijven",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Agrarisch terrein",
+          "Voor wie is het?": "Voor uzelf",
+          "Hoofdcategorie (SBI)": "",
+          "Subcategorie (SBI)": "",
+          "SBI-code": ""
+        },
+        {
+          "Werkzaamheid": "Verbrandingsmotor proefdraaien",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Industrie",
+          "Subcategorie (SBI)": "Testen van motoren",
+          "SBI-code": "72.19.0"
+        },
+        {
+          "Werkzaamheid": "Vergisting of composteren van afval",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Recycling",
+          "Subcategorie (SBI)": "Composteren",
+          "SBI-code": "38.32.0"
+        },
+        {
+          "Werkzaamheid": "Vergunning aanvragen voor werken met hoge risico’s",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Veiligheid en Noodhulp",
+          "Subcategorie (SBI)": "Risicoanalyse en vergunningen",
+          "SBI-code": "74.90.0"
+        },
+        {
+          "Werkzaamheid": "Verhuisbedrijf",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Logistiek",
+          "Subcategorie (SBI)": "Vervoer en opslag",
+          "SBI-code": "49.39.0"
+        },
+        {
+          "Werkzaamheid": "Vervuiling schoonmaken",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Veiligheid",
+          "Subcategorie (SBI)": "Milieuherstel",
+          "SBI-code": "81.29.9"
+        },
+        {
+          "Werkzaamheid": "Vervuiling opslaan en verplaatsen",
+          "Wat wilt u doen? (Type activiteit)": "Afvalbeheer en Recycling",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Veiligheid",
+          "Subcategorie (SBI)": "Vervuilingsbeheer",
+          "SBI-code": "38.32.3"
+        },
+        {
+          "Werkzaamheid": "Vervuiling herstellen of verwijderen",
+          "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Milieu en Veiligheid",
+          "Subcategorie (SBI)": "Vervuilingherstel",
+          "SBI-code": "81.29.9"
+        },
+        {
+          "Werkzaamheid": "Vervoer van gevaarlijke stoffen of afval",
+          "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
+          "Voor wie is het?": "Voor uw bedrijf",
+          "Hoofdcategorie (SBI)": "Vervoer en opslag",
+          "Subcategorie (SBI)": "Vervoer van gevaarlijke stoffen",
+          "SBI-code": "49.41.0"
+        }
+      ]
+
+
+
+      // geselecteerdeWerkzaamheden: local tracking for search-result checkbox sync
+      let geselecteerdeWerkzaamheden = new Set();
+      // gekozenItems is provided by vcheck-common.js (shared across all pages)
+
+      // Pagination state
+      const ITEMS_PER_PAGE = 10;
+      let currentPage = 1;
+      let huidigGefilterdeData = [];
+
+      // 1. Selecteer de elementen
+      const searchInput = document.getElementById('searchInput');
+      const selectables = document.querySelectorAll('dso-selectable[type="checkbox"]');
+      console.log("Script start laden...");
+
+      function updateDisplay() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+
+        // 1. Verzamel alle aangevinkte elementen
+        const activeSelection = Array.from(document.querySelectorAll('dso-selectable'))
+          .filter(s => s.checked)
+          .map(s => ({
+            val: s.value,
+            text: s.innerText,
+            // Bepaal in welke categorie dit element hoort op basis van de tekst
+            category: s.innerText.includes("Voor") ? 'wie' :
+              (s.innerText.includes("terrein") || s.innerText.includes("locatie") || s.innerText.includes("ruimte") || s.innerText.includes("tuin")) ? 'waar' : 'wat'
+          }));
+
+        // 2. Maak drie aparte lijsten voor de AND-vergelijking
+        const wieFilters = activeSelection.filter(s => s.category === 'wie').map(s => {
+          if (s.text.includes("uzelf") && !s.text.includes("bedrijf")) return "Voor uzelf";
+          if (s.text.includes("buurt")) return "Voor de buurt/gemeente";
+          if (s.text.includes("overheid")) return "Voor de overheid";
+          if (s.text.includes("publiek")) return "Voor het publiek";
+          if (s.text.includes("uw bedrijf")) return "Voor uw bedrijf";
+          if (s.text.includes("uzelf + bedrijf")) return "Voor uzelf +Voor uw bedrijf";
+        });
+
+        const waarFilters = activeSelection.filter(s => s.category === 'waar').map(s => {
+          if (s.val === "11") return "Agrarisch terrein";
+          if (s.val === "12") return "Bedrijfslocatie";
+          if (s.val === "13") return "Buitenlocatie";
+          if (s.val === "14") return "Eigen woning of tuin";
+          if (s.val === "15") return "Grondwaterlocaties";
+          if (s.val === "16") return "Militaire locatie";
+          if (s.val === "17") return "Natuurgebied";
+          if (s.val === "18") return "Openbare ruimte (markt, evenement)";
+          if (s.val === "19") return "Openbare ruimte (straat, plein, park)";
+          if (s.val === "110") return "Specifieke locatie (brandweer, politiebureau)";
+          if (s.val === "111") return "Vakantiepark recreatieterrein";
+          if (s.val === "112") return "Water (sloot, vijver, rivier)";
+          if (s.val === "113") return "Zeehaven";
+        });
+
+        const watFilters = activeSelection.filter(s => s.category === 'wat').map(s => {
+          if (s.text.includes("Afvalbeheer")) return "Afvalbeheer en Recycling";
+          if (s.text.includes("Bedrijf starten")) return "Bedrijf starten of veranderen";
+          if (s.text.includes("Bouwen")) return "Bouwen of verbouwen";
+          if (s.text.includes("Chemische")) return "Chemische en industriele producten";
+          if (s.text.includes("Dieren")) return "Dieren houden";
+          if (s.text.includes("Energie")) return "Energie en gas";
+          if (s.text.includes("Evenement")) return "Evenement organiseren";
+          if (s.text.includes("Grondwerkzaamheden")) return "Grondwerkzaamheden en funderingen";
+          if (s.text.includes("Onderhoud")) return "Onderhoud en reperatie";
+          if (s.text.includes("Overige")) return "Overige activiteiten";
+          if (s.text.includes("Sloopwerkzaamheden") && !s.text.includes("grond")) return "Sloopwerkzaamheden";
+          if (s.text.includes("Sloopwerkzaamheden of grondwerkzaamheden")) return "Sloopwerkzaamheden of grondwerkzaamheden";
+          if (s.text.includes("Tuin")) return "Tuin of erf aanpassen";
+        });
+
+        // 3. De Filter Logica (AND tussen groepen)
+        const gefilterdeData = excelData.filter(item => {
+          // Zoekveld check
+          const matchesSearch = item["Werkzaamheid"].toLowerCase().includes(query) ||
+            (item["SBI-code"] && item["SBI-code"].toLowerCase().includes(query));
+
+          // AND-logica: Als een groep filters heeft, MOET het item daarin voorkomen
+          const matchesWie = wieFilters.length === 0 || wieFilters.includes(item["Voor wie is het?"]);
+          const matchesWaar = waarFilters.length === 0 || waarFilters.includes(item["Waar wilt u dit doen? (Locatie/type omgeving)"]);
+          const matchesWat = watFilters.length === 0 || watFilters.includes(item["Wat wilt u doen? (Type activiteit)"]);
+
+          // Alleen tonen als het aan alle actieve groepen voldoet
+          return matchesSearch && matchesWie && matchesWaar && matchesWat;
+        });
+
+        // Reset naar pagina 1 bij elke nieuwe zoekopdracht/filter
+        currentPage = 1;
+        huidigGefilterdeData = gefilterdeData;
+        renderResults(huidigGefilterdeData);
+        updateDynamicCounts(gefilterdeData);
+        renderActiveFilters();
+      }
+      function renderResults(data) {
+        const list = document.getElementById('resultsList');
+        const count = document.getElementById('resultsCount');
+        const totalPages = Math.max(1, Math.ceil(data.length / ITEMS_PER_PAGE));
+
+        // Zorg dat currentPage binnen bereik blijft
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        count.innerText = `${data.length} resultaten gevonden`;
+
+        // Update de DSO pagination component
+        const pagination = document.querySelector('dso-pagination');
+        if (pagination) {
+          pagination.setAttribute('total-pages', totalPages);
+          pagination.setAttribute('current-page', currentPage);
+        }
+
+        if (data.length === 0) {
+          list.innerHTML = `
+            <div class="no-results">
+                <p>Geen resultaten gevonden voor deze combinatie.</p>
+            </div>`;
+          return;
+        }
+
+        // Slice de data naar de huidige pagina
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const paginaData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+        list.innerHTML = paginaData.map(item => `
+        <dso-list-button label="${item["Werkzaamheid"]}"></dso-list-button>
+    `).join('');
+
+        // Zoek alle zojuist getekende list-buttons
+        const listButtons = list.querySelectorAll('dso-list-button');
+        listButtons.forEach(button => {
+          // 1. Zorg dat de knop 'checked' blijft als hij al in je selectie zat
+          if (gekozenItems.has(button.getAttribute('label'))) {
+            button.setAttribute('checked', '');
+          }
+
+          // 2. Voeg de listener toe voor het aan/uit vinken
+          button.addEventListener('dsoSelectedChange', (e) => {
+            const label = e.target.getAttribute('label');
+            const isCurrentlyChecked = e.target.hasAttribute('checked');
+
+            if (isCurrentlyChecked) {
+              e.target.removeAttribute('checked');
+              gekozenItems.delete(label);
+            } else {
+              e.target.setAttribute('checked', '');
+              gekozenItems.add(label);
+            }
+
+            slaSessionOp();
+            renderWinkelmandje();
+          });
+        });
+      }
+
+      // Luister naar het correcte DSO pagination event
+      document.querySelector('dso-pagination').addEventListener('dsoSelectPage', (e) => {
+        currentPage = e.detail.page;
+        renderResults(huidigGefilterdeData);
+        document.getElementById('resultsCount').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // 4. Event Listeners koppelen
+      // Voor de tekstinput
+      searchInput.addEventListener('input', updateDisplay);
+
+      // Voor de DSO checkboxes (luister naar dsoChange)
+      // 2. De aangepaste Event Listeners
+      selectables.forEach(selectable => {
+        selectable.addEventListener('dsoChange', (event) => {
+          // Forceer de 'checked' status op het element op basis van het event detail
+          // Dit zorgt ervoor dat de .filter(s => s.checked) hierboven altijd klopt
+          selectable.checked = event.detail.checked;
+
+          // Kleine timeout om de component tijd te geven de DOM te updaten
+          setTimeout(updateDisplay, 10);
+        });
+      });
+
+      function renderActiveFilters() {
+        const listContainer = document.getElementById('active-filters-list');
+        if (!listContainer) return;
+
+        listContainer.innerHTML = ''; // Maak de lijst leeg
+
+        // Zoek alle aangevinkte checkboxes
+        const activeCheckboxes = Array.from(document.querySelectorAll('dso-selectable'))
+          .filter(s => s.checked || s.hasAttribute('checked'));
+
+        activeCheckboxes.forEach(cb => {
+          // Haal de tekst op (zonder de teller-span)
+          const labelText = cb.innerText.replace(/\s\(\d+\)$/, "").trim();
+
+          // 1. Maak het lijst-item aan
+          const li = document.createElement('li');
+
+          // 2. Maak het dso-label aan
+          const dsoLabel = document.createElement('dso-label');
+          dsoLabel.setAttribute('removable', '');
+          dsoLabel.innerText = labelText;
+
+          // 3. Voeg de event listener toe (met de juiste naam: dsoRemoveClick)
+          dsoLabel.addEventListener('dsoRemoveClick', (event) => {
+            event.preventDefault();
+            cb.checked = false;
+            cb.removeAttribute('checked');
+            updateDisplay();
+          });
+
+          // 4. Voeg label toe aan li, en li aan de ul
+          li.appendChild(dsoLabel);
+          listContainer.appendChild(li);
+        });
+      }
+
+
+      // Init: toon de volledige lijst bij laden
+      updateDisplay();
+      renderWinkelmandje();
+
+
+      function updateDynamicCounts(huidigeData) {
+        const counts = {};
+
+        // 1. Tel de resultaten in de huidige gefilterde set
+        huidigeData.forEach(item => {
+          const kolommen = [
+            item["Voor wie is het?"],
+            item["Waar wilt u dit doen? (Locatie/type omgeving)"],
+            item["Wat wilt u doen? (Type activiteit)"]
+          ];
+          kolommen.forEach(val => {
+            if (val) counts[val] = (counts[val] || 0) + 1;
+          });
+        });
+
+        // 2. Loop door alle selectables
+        document.querySelectorAll('dso-selectable').forEach(s => {
+          // Haal de basistekst op om de match in de data te vinden
+          const clone = s.cloneNode(true);
+          const spanInClone = clone.querySelector('.filter-count');
+          if (spanInClone) spanInClone.remove();
+          let labelText = clone.innerText.trim();
+
+          let matchKey = labelText;
+          if (labelText.includes("uzelf + bedrijf")) matchKey = "Voor uzelf +Voor uw bedrijf";
+
+          const aantal = counts[matchKey] || 0;
+
+          // 3. Update de span met het getal
+          const countSpan = s.querySelector('.filter-count');
+          if (countSpan) {
+            countSpan.innerText = ` (${aantal})`;
+          }
+
+          // 4. VERBERGEN LOGICA:
+          // Als het aantal 0 is EN de checkbox is niet aangevinkt, verberg hem.
+          // We laten aangevinkte filters altijd staan, zodat je ze nog kunt uitvinken!
+          if (aantal === 0 && !s.checked) {
+            s.style.display = 'none';
+          } else {
+            s.style.display = 'block'; // of 'inline-block' afhankelijk van je layout
+          }
+        });
+
+      }
+
+      // Gebruik een Set om unieke werkzaamheden op te slaan
+
+
+      /**
+       * Functie om de status van een werkzaamheid te toggelen
+       * @param {string} naam - De naam van de werkzaamheid
+       * @param {boolean} isChecked - Of hij aan of uit moet
+       */
+      function toggleWerkzaamheid(naam, isChecked) {
+        if (isChecked) {
+          geselecteerdeWerkzaamheden.add(naam);
+        } else {
+          geselecteerdeWerkzaamheden.delete(naam);
+        }
+
+        // Na elke wijziging updaten we het mandje en de vinkjes in de lijst
+        renderWinkelmandje();
+        updateCheckboxesInLijst();
+      }
+
+      /**
+       * Zorgt dat de vinkjes in de zoekresultaten synchroon lopen met het mandje
+       */
+      function updateCheckboxesInLijst() {
+        const allSelectables = document.querySelectorAll('.result-item dso-selectable');
+        allSelectables.forEach(cb => {
+          const naam = cb.innerText.trim();
+          const moetAanStaan = geselecteerdeWerkzaamheden.has(naam);
+
+          cb.checked = moetAanStaan;
+          if (moetAanStaan) {
+            cb.setAttribute('checked', '');
+          } else {
+            cb.removeAttribute('checked');
+          }
+        });
+      }
+
+      // renderWinkelmandje and verwijderUitMandje are provided by vcheck-common.js
+      // The override below additionally syncs dso-list-button checked states
+      function verwijderUitMandje(naam) {
+        // Remove from both local and shared sets, persist, and re-render
+        geselecteerdeWerkzaamheden.delete(naam);
+        gekozenItems.delete(naam);
+        slaSessionOp();
+        renderWinkelmandje();
+
+        // Also uncheck any visible dso-list-button with this label
+        document.querySelectorAll('dso-list-button').forEach(btn => {
+          if (btn.getAttribute('label') === naam) btn.removeAttribute('checked');
+        });
+      }
+
+    </script>
+
+
+
+</body>
+
+</html>

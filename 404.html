@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <main class="container">
+    <h1>Deze pagina is geen onderdeel van de Test</h1>
+    <h2>Geef aan de testbegeleider door waarom je deze pagina hebt aangeklikt en wat je hier verwacht te zien</h2>
+    <button type="button" class="dso-primary" onclick="GaTerug()">
+      <dso-icon icon="chevron-left"></dso-icon>
+      <span>Ga terug naar vorige pagina</span>
+    </button>
+    <script>
+      function GaTerug(){
+        history.back();
+      };
+    </script>
+  </main>
+</body>
+
+
+</html>
