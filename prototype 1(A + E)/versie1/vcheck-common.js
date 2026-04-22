@@ -47,7 +47,7 @@ const WERKZAAMHEID_MAPPING = Object.assign(
 
 /** Centrale Set; alle functies lezen/schrijven hierin. */
 let gekozenItems = new Set();
-let subItem = new Set();
+let subItems = new Set();
 
 // ─────────────────────────────────────────────────────────────
 // 2. SessionStorage helpers
@@ -62,11 +62,12 @@ function getState() {
   }
 }
 
-/** Schrijft de huidige gekozenItems terug naar sessionStorage. */
+/** Schrijft gekozenItems én subItems terug naar sessionStorage. */
 function slaSessionOp() {
   try {
     const state = getState();
-    state.werkzaamheden = Array.from(gekozenItems);
+    state.werkzaamheden    = Array.from(gekozenItems);
+    state.subWerkzaamheden = Array.from(subItems);
     sessionStorage.setItem('vcheck_state', JSON.stringify(state));
   } catch (e) { /* silent fail */ }
 }
@@ -80,17 +81,21 @@ function herstelSessie() {
     const state = getState();
     if (state.werkzaamheden && Array.isArray(state.werkzaamheden)) {
       state.werkzaamheden.forEach(naam => gekozenItems.add(naam));
-      renderWinkelmandje();
-
-      // Vinkjes herstellen op list-buttons (die kunnen laat renderen)
-      setTimeout(() => {
-        document.querySelectorAll('dso-list-button').forEach(btn => {
-          if (gekozenItems.has(btn.getAttribute('label'))) {
-            btn.setAttribute('checked', '');
-          }
-        });
-      }, 100);
     }
+    if (state.subWerkzaamheden && Array.isArray(state.subWerkzaamheden)) {
+      state.subWerkzaamheden.forEach(naam => subItems.add(naam));
+    }
+    renderWinkelmandje();
+
+    // Vinkjes herstellen op list-buttons (die kunnen laat renderen)
+    setTimeout(() => {
+      document.querySelectorAll('dso-list-button').forEach(btn => {
+        const label = btn.getAttribute('label');
+        if (gekozenItems.has(label) || subItems.has(label)) {
+          btn.setAttribute('checked', '');
+        }
+      });
+    }, 100);
   } catch (e) {
     console.error('Fout bij herstellen sessie:', e);
   }
@@ -101,14 +106,15 @@ function herstelSessie() {
 // 3. Winkelmandje (shopping cart)
 // ─────────────────────────────────────────────────────────────
 
-/** Tekent het winkelmandje opnieuw op basis van gekozenItems. */
+/** Tekent het winkelmandje opnieuw op basis van gekozenItems (en subItems). */
 function renderWinkelmandje() {
   const container = document.getElementById('mijn-winkelmandje');
   if (!container) return;
 
   const items = Array.from(gekozenItems);
+  const isOverzicht = document.body.classList.contains('pagina-overzicht');
 
-  if (items.length === 0) {
+  if (items.length === 0 && subItems.size === 0) {
     container.innerHTML = `
       <div class="dso-shopping-cart">
         <div class="dso-contents">
@@ -118,13 +124,49 @@ function renderWinkelmandje() {
     return;
   }
 
-  const lijstHtml = items.map(naam => `
-    <li>
-      <span class="werkzaamheid-naam">${naam}</span>
-      <button onclick="verwijderUitMandje('${naam.replace(/'/g, "\\'")}')" type="button" class="dso-delete">
-        <span class="sr-only">Verwijder ${naam}</span><dso-icon icon="trash"></dso-icon>
-      </button>
-    </li>`).join('');
+  let lijstHtml;
+
+  if (isOverzicht) {
+    // Op de overzicht-pagina: sub-items genest tonen onder de garage-werkzaamheid
+    lijstHtml = items.map(naam => {
+      let subHtml = '';
+      if (naam === GARAGE_WERKZAAMHEID && subItems.size > 0) {
+        const subLijst = Array.from(subItems).map(sub => `
+          <li>
+            <span class="werkzaamheid-naam">${sub}</span>
+            <button onclick="verwijderSubItemUitMandje('${sub.replace(/'/g, "\\'")}')" type="button" class="dso-delete">
+              <span class="sr-only">Verwijder ${sub}</span><dso-icon icon="trash"></dso-icon>
+            </button>
+          </li>`).join('');
+        subHtml = `<ul class="dso-subitems">${subLijst}</ul>`;
+      }
+      return `
+        <li>
+          <span class="werkzaamheid-naam">${naam}</span>
+          <button onclick="verwijderUitMandje('${naam.replace(/'/g, "\\'")}')" type="button" class="dso-delete">
+            <span class="sr-only">Verwijder ${naam}</span><dso-icon icon="trash"></dso-icon>
+          </button>
+          ${subHtml}
+        </li>`;
+    }).join('');
+  } else {
+    // Op andere pagina's: sub-items plat weergeven na de hoofd-werkzaamheden
+    const subLijst = Array.from(subItems).map(sub => `
+      <li>
+        <span class="werkzaamheid-naam">${sub}</span>
+        <button onclick="verwijderSubItemUitMandje('${sub.replace(/'/g, "\\'")}')" type="button" class="dso-delete">
+          <span class="sr-only">Verwijder ${sub}</span><dso-icon icon="trash"></dso-icon>
+        </button>
+      </li>`).join('');
+
+    lijstHtml = items.map(naam => `
+      <li>
+        <span class="werkzaamheid-naam">${naam}</span>
+        <button onclick="verwijderUitMandje('${naam.replace(/'/g, "\\'")}')" type="button" class="dso-delete">
+          <span class="sr-only">Verwijder ${naam}</span><dso-icon icon="trash"></dso-icon>
+        </button>
+      </li>`).join('') + subLijst;
+  }
 
   container.innerHTML = `
     <div class="dso-shopping-cart">
@@ -144,6 +186,10 @@ function renderWinkelmandje() {
  */
 function verwijderUitMandje(naam) {
   gekozenItems.delete(naam);
+  // Als de garage-werkzaamheid verwijderd wordt, verwijder ook de sub-items
+  if (naam === GARAGE_WERKZAAMHEID) {
+    subItems.clear();
+  }
   slaSessionOp();
   renderWinkelmandje();
 
@@ -155,17 +201,25 @@ function verwijderUitMandje(naam) {
   });
 }
 
-function verwijderAllesUitMandje() {
-  // 1. Maak de volledige Set of Map leeg
-  gekozenItems.clear();
-
-  // 2. Sla de nu lege staat op in de sessie
+/** Verwijdert een enkel sub-item uit het mandje en de sessie. */
+function verwijderSubItemUitMandje(naam) {
+  subItems.delete(naam);
   slaSessionOp();
-
-  // 3. Update de weergave van het winkelmandje
   renderWinkelmandje();
 
-  // 4. Verwijder de vinkjes van ALLE knoppen op de pagina
+  document.querySelectorAll('dso-list-button').forEach(btn => {
+    if (btn.getAttribute('label') === naam) {
+      btn.removeAttribute('checked');
+    }
+  });
+}
+
+function verwijderAllesUitMandje() {
+  gekozenItems.clear();
+  subItems.clear();
+  slaSessionOp();
+  renderWinkelmandje();
+
   document.querySelectorAll('dso-list-button').forEach(btn => {
     btn.removeAttribute('checked');
   });
@@ -263,10 +317,16 @@ document.addEventListener('DOMContentLoaded', () => {
  * tussen extra-werkzaamheden en werkzaamheden-overzicht.
  */
 const GARAGE_WERKZAAMHEID = 'Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw';
+const DAKKAPEL_WERKZAAMHEID = 'Dakkapel plaatsen, vervangen of veranderen';
 
 /** Geeft true terug als de garage-werkzaamheid momenteel in het mandje zit. */
 function heeftGarageWerkzaamheid() {
   return gekozenItems.has(GARAGE_WERKZAAMHEID);
+}
+
+/** Geeft true terug als de dakkapel-werkzaamheid momenteel in het mandje zit. */
+function heeftDakkapelWerkzaamheid() {
+  return gekozenItems.has(DAKKAPEL_WERKZAAMHEID);
 }
 
 /**
@@ -310,20 +370,28 @@ function gaNaarVolgendeVanuitExtraWerkzaamheden() {
 
 /**
  * Vorige-knop op werkzaamheden-overzicht:
- * → bedrijfstak als garage in mandje, anders → extra-werkzaamheden.
+ * → bedrijfstak als garage in mandje, → extra-werkzaamheden-dakkapel als dakkapel in mandje,
+ * anders → extra-werkzaamheden.
  */
 function gaNaarVorigeVanuitOverzicht() {
-  window.location.href = heeftGarageWerkzaamheid()
-    ? 'bedrijfstak.html'
-    : 'extra-werkzaamheden.html';
+  if (heeftGarageWerkzaamheid()) {
+    window.location.href = 'bedrijfstak.html';
+  } else if (heeftDakkapelWerkzaamheid()) {
+    window.location.href = 'extra-werkzaamheden-dakkapel.html';
+  } else {
+    window.location.href = 'extra-werkzaamheden.html';
+  }
 }
 
 function slaOpEnGaNaarExtraBoomOfGarage() {
   slaSessionOp();
-  window.location.href = heeftGarageWerkzaamheid()
-    ? 'extra-werkzaamheden-garage.html'
-    : 'extra-werkzaamheden.html';
-
+  if (heeftGarageWerkzaamheid()) {
+    window.location.href = 'extra-werkzaamheden-garage.html';
+  } else if (heeftDakkapelWerkzaamheid()) {
+    window.location.href = 'extra-werkzaamheden-dakkapel.html';
+  } else {
+    window.location.href = 'extra-werkzaamheden.html';
+  }
 }
 
 

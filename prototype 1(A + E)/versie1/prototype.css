@@ -47,13 +47,16 @@
     .dso-subitems {
       border-block-start: none !important;
       background-color: #fff !important;
-      
 
       li {
+        margin-left: 16px;
         padding-left: 8px !important;
-        margin-inline-start: 0px !important;
         padding-right: 8px !important;
+        border-block-start: 8px solid #e1ecf7 !important;
 
+        span{
+          margin-left: 24px;
+        }
       }
     }
 
