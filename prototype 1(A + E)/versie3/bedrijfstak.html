@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <div id="wizard">
+      <div class="dso-app-heading">
+        <h1>Vergunningcheck</h1>
+        <h2 id="step-indicator" class="dso-steps-indicator">2. Kies werkzaamheden - verfijnen<span class="dso-step">Stap
+            2/4</span></h2>
+      </div>
+      <form class="form-vertical">
+        
+        <div class="row form-group">
+          <div class="col-md-4 col-md-push-8">
+            <div id="mijn-winkelmandje"></div>
+          </div>
+          <div class="col-md-8 col-md-pull-4">
+
+            <h4>Vul in welke werkzaamheden u doet binnen de bedrijfstak die u gekozen heeft.</h4><dso-accordion
+              id="werkzaamheden-accordion" class="hydrated" ><dso-accordion-section
+                data-testid="dso-accordion-section-Garagebedrijf,-autoschadeherstelbedrijf,-autowasstraat-of-bedrijf-voor-carrosseriebouw"
+                id="http://toepasbare-regels.omgevingswet.overheid.nl/werkzaamheden/id/concept/BedrijfVoorOnderhoudReparatieWassenOfBouwVanAutoS"
+                class="dso-accordion-section hydrated dso-accordion-default" open="" handle-title="Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw">
+                <fieldset>
+                  <legend class="sr-only">
+                    <h4>Kies alles dat ook van toepassing is voor 'Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw'</h4>
+                  </legend>
+                  <div class="dso-context-wrapper"><span class="dso-context-label" aria-hidden="true">
+                      <h4>Kies alles dat ook van toepassing is voor 'Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw'</h4>
+                    </span></div><dso-list-button data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-0"
+                    class="hydrated" label="Andere materialen dan steen of metaal bewerken"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-1"
+                    class="hydrated" label="Auto's of andere gemotoriseerde voertuigen of werktuigen onderhouden of repareren"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-2"
+                    class="hydrated" label="Brandstof tanken"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-3"
+                    class="hydrated" label="Gasflessen vullen met propaan of butaan"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-4"
+                    class="hydrated" label="Gemotoriseerde voertuigen wassen"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-5"
+                    class="hydrated" label="Materialen, schoonmaken, lijmen of coaten"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-6"
+                    class="hydrated" label="Materialen,afval of andere goederen opslaan"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-7"
+                    class="hydrated" label="Metaal bewerken of behandelen"></dso-list-button><dso-list-button
+                    data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-8"
+                    class="hydrated" label="Verbrandingsmotor proefdraaien"></dso-list-button>
+                </fieldset>
+              </dso-accordion-section></dso-accordion>
+
+          </div>
+        </div>
+        <div class="dso-form-buttons">
+          <div class="dso-aside"><button id="back-button-bottom" class="btn dso-tertiary " type="button"
+              data-testid="back-button-bottom"  onclick="gaNaarVorige()"><dso-icon class="hydrated"
+                icon="chevron-left"></dso-icon><span>Vorige</span></button></div>
+          <button id="save-check-from-wizard" class="btn dso-secondary " type="button"><dso-icon class="hydrated"
+              icon="user-solid"></dso-icon><span>Vergunningcheck opslaan</span></button><button id="next-button-bottom"
+            class="btn dso-primary " type="button" data-testid="next-button-bottom" onclick="slaOpEnGaNaar()"><span>Volgende</span><dso-icon
+              class="hydrated" icon="chevron-right"></dso-icon></button>
+        </div>
+      </form>
+    </div>
+
+
+    <footer  id="footer" tabindex="-1">
+      <div  class="row">
+        <div  class="col-md-3 col-sm-6">
+          <h2 >Algemeen</h2>
+          <ul  class="dso-link-list" id="Algemeen">
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/contact">Contact</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div  class="col-md-3 col-sm-6">
+          <h2 >Over deze site</h2>
+          <ul  class="dso-link-list" id="Over deze site">
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/privacyverklaring">Privacyverklaring</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/cookies">Cookies</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                 href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div  class="col-md-6 col-sm-12">
+          <h2 >Omgevingsloket</h2>
+          <p  class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div  class="row">
+            <div  class="col-md-2"><img  src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div  class="col-sm-10 dso-grey">
+              <p >Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul  class="dso-link-list" id="Omgevingsloket">
+                <li  routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                     href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script>
+    window.VCHECK_CONFIG = {
+      navigatieVolgende: 'werkzaamheden-overzicht.html',
+      navigatieVorige:   'extra-werkzaamheden-garage.html',
+      // bedrijfstak heeft alleen boom-terug en monument, niet wortels
+      werkzaamheidMapping: {
+        'boom-terug-ja': 'Boom planten of beplanting aanbrengen',
+        'monument-ja':   'Werkzaamheden in, aan of op een monument of archeologisch monument uitvoeren, of dit anders gebruiken',
+      },
+    };
+  </script>
+  <script src="vcheck-common.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { if (gekozenItems.size === 0 && subItems.size === 0) window.location.href = 'werkzaamheden.html'; });</script>
+  <script>
+    document.querySelectorAll('dso-list-button').forEach(button => {
+      // Herstel vinkje als sub-item al geselecteerd was
+      if (subItems.has(button.getAttribute('label'))) {
+        button.setAttribute('checked', '');
+      }
+
+      button.addEventListener('dsoSelectedChange', (e) => {
+        const label = e.target.getAttribute('label');
+        const isCurrentlyChecked = e.target.hasAttribute('checked');
+
+        if (isCurrentlyChecked) {
+          e.target.removeAttribute('checked');
+          subItems.delete(label);
+        } else {
+          e.target.setAttribute('checked', '');
+          subItems.add(label);
+        }
+
+        slaSessionOp();
+        renderWinkelmandje();
+      });
+    });
+  </script>
+</body>
+
+</html>

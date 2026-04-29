@@ -223,6 +223,8 @@ function verwijderAllesUitMandje() {
   document.querySelectorAll('dso-list-button').forEach(btn => {
     btn.removeAttribute('checked');
   });
+
+  window.location.href = 'werkzaamheden.html';
 }
 
 
@@ -354,8 +356,16 @@ function gaNaarWerkzaamheden()        { window.location.href = 'werkzaamheden.ht
 function gaNaarLocatie()              { window.location.href = 'locatie.html'; }
 function gaNaarExWKZ()                { slaOpEnGaNaar('werkzaamheden-overzicht.html'); }
 function gaNaarOverzicht()            { window.location.href = 'werkzaamheden-overzicht.html'; }
-function gaNaarVragen()               { window.location.href = 'vragen-bomen.html'; }
-function gaNaarConclusie()            { window.location.href = 'conclusie.html'; }
+function gaNaarVragen() {
+  window.location.href = heeftDakkapelWerkzaamheid()
+    ? 'vragen-dakkapel.html'
+    : 'vragen-bomen.html';
+}
+function gaNaarConclusie() {
+  window.location.href = heeftDakkapelWerkzaamheid()
+    ? 'conclusie-dakkapel.html'
+    : 'conclusie.html';
+}
 
 /**
  * Volgende-knop op extra-werkzaamheden:

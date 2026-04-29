@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <main>
+      <form>
+
+        <div class="dso-app-heading">
+
+          <h1>Vergunningcheck</h1>
+
+          <h2 class="dso-steps-indicator">
+            4. Resultaat <span class="dso-step">Stap
+              4/4</span>
+          </h2>
+
+        </div>
+
+
+        <form class="form-horizontal">
+          <div data-testid="whattodo-content" class="dso-rich-content">
+            <h2>Wat gaat u doen?</h2>
+            <p>U heeft de Vergunningcheck gedaan voor de volgende werkzaamheden:</p>
+            <ul data-testid="whattodo-werkzaamheid-list">
+              <li>Dakkapel plaatsen, vervangen of veranderen</li>
+              <li class="dso-status-warning"><strong>Niet compleet: </strong>Bouwmateriaal, container of ander object tijdelijk plaatsen</li>
+              <li class="dso-status-warning"><strong>Niet compleet: </strong>Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen</li>
+            </ul>
+            <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
+          </div><dso-action-list list-title="Voorlopige actielijst Omgevingsloket"
+            class="hydrated"><dso-action-list-item step="1" flow-line="true" class="flow-line hydrated"><button
+                id="action-list-download-pdf" class="btn dso-secondary " type="button"><dso-icon
+                  class="hydrated"></dso-icon><span>Download de actielijst als
+                  pdf</span></button></dso-action-list-item><dso-action-list-item
+              item-title="Maak de actielijst compleet" step="2" flow-line="" class="flow-line hydrated"><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Beantwoord-de-openstaande-vragen" id="284621081"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion></dso-action-list-item><dso-action-list-item
+              item-title="Neem contact op met de gemeente" class="divider hydrated" step="3"><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Gemeente: Wat u moet regelen voor 'Flora- en fauna-activiteit'"
+                  id="1616762203"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion></dso-action-list-item><dso-action-list-item
+              item-title="Let op" class="hydrated" step="4" warning="true">
+              <p>Deze actielijst is niet compleet. Mogelijk moet u meer of andere zaken regelen voordat u daadwerkelijk
+                met de werkzaamheden mag starten.&nbsp;<a role="button" tabindex="0">Ga terug naar de vorige
+                  stap</a>&nbsp;en beantwoord de openstaande vragen.</p>
+            </dso-action-list-item>
+            <div data-testid="heeft-u-vragen-content" class="dso-rich-content">
+              <h2>Heeft u vragen?</h2>
+              <p>Neem contact op met de gemeente of het waterschap.</p><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Contactinformatie gemeente Venlo" id="00000001001567834000"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Contactinformatie waterschap Limburg" id="00000001857127858000"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion>
+            </div>
+          </dso-action-list>
+        </form>
+
+
+        <div class="dso-form-buttons">
+
+          <div class="dso-aside">
+            <button type="button" class="dso-secondary" onclick="gaNaarVragen()">
+              <dso-icon icon="chevron-left" class="hydrated"></dso-icon><span>Antwoorden
+                aanpassen</span>
+            </button>
+
+          </div>
+
+          <button type="button" class="dso-secondary">
+            <dso-icon icon="download" class="hydrated"></dso-icon><span>Actielijst
+              downloaden</span>
+          </button>
+
+          <button type="button" class="dso-primary">
+            <span>Aanvragen en
+              voorbereiden</span>
+          </button>
+
+        </div>
+
+        <hr>
+
+
+        <div class="dso-rich-content">
+          <p>
+            <em class="text-muted">De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een
+              algemene indruk
+              of er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met
+              veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u
+              geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog)
+              niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere
+              vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze
+              Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan
+              contact op te nemen met uw gemeente en/of waterschap.</em>
+          </p>
+        </div>
+    </main>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="vcheck-common.js"></script>
+  <script>
+    // Vorige-knop navigeert terug naar vragen-dakkapel
+    function gaNaarVragen() { window.location.href = 'vragen-dakkapel.html'; }
+  </script>
+</body>
+
+</html>

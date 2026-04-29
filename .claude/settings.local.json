@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:omgevingswet.overheid.nl)"
+      "WebFetch(domain:omgevingswet.overheid.nl)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Fix navigatie conclusie en vragen paginas voor dakkapel flow *)"
     ]
   }
 }

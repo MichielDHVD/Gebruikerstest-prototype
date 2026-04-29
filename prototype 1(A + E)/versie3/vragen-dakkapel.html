@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <main>
+      <form class="form-horizontal">
+        
+        <div class="dso-app-heading">
+          
+          <h1>Vergunningcheck</h1>
+          
+          <h2 class="dso-steps-indicator">
+            3. Vragen beantwoorden <span class="dso-step">Stap
+              3/4</span>
+          </h2>
+
+        </div>
+
+        <h3>Dakkapel plaatsen, vervangen of veranderen</h3>
+
+        <dso-accordion class="hydrated">
+
+          <dso-accordion-section open="" heading="h4"
+            handle-title="Beschermde dieren of planten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+
+            <fieldset>
+              <legend class="sr-only">Vragenlijst</legend>
+
+              <fieldset class="form-group dso-radios dso-inline">
+                <legend class="sr-only">Heeft u in de afgelopen 3 jaar op de locatie van uw werkzaamheid laten onderzoeken of er beschermde planten of dieren zijn?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Heeft u in de afgelopen 3 jaar op de locatie van uw werkzaamheid laten onderzoeken of er beschermde planten of dieren zijn?</span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="onderzoek-ja" value="true"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="onderzoek-ja" value="true" name="onderzoek" class="sc-dso-selectable">
+                        <label for="onderzoek-ja" class="sc-dso-selectable sc-dso-selectable-s">Ja</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="onderzoek-nee" value="false"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="onderzoek-nee" value="false" name="onderzoek" class="sc-dso-selectable">
+                        <label for="onderzoek-nee" class="sc-dso-selectable sc-dso-selectable-s">Nee</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-radios dso-inline" aria-describedby="toelichting-besi">
+                <legend class="sr-only">Ga naar BeSI om te kijken of er op de locatie van uw werkzaamheid beschermde dieren of planten aanwezig kunnen zijn. Heeft u BeSI doorlopen?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Ga naar BeSI om te kijken of er op de locatie van uw werkzaamheid beschermde dieren of planten aanwezig kunnen zijn. Heeft u BeSI doorlopen?</span>
+                  <dso-info fixed="" active="" class="hydrated" id="toelichting-besi">
+                    <div class="dso-rich-content">
+                      <p><strong>Wat is BeSI?</strong></p>
+                      <p>BeSI staat voor <strong>B</strong>eschermde <strong>S</strong>oorten<strong>I</strong>ndicator.</p>
+                      <p>Met <a href="https://besi.bij12.nl" target="_blank" rel="noopener noreferrer">BeSI</a> kunt u zien of er op de locatie van uw werkzaamheid beschermde dieren of planten aanwezig kunnen zijn.</p>
+                      <p>Kies in BeSI dezelfde werkzaamheid als die u hier heeft gekozen. Heeft u meer dan 1 werkzaamheid gekozen? Doorloop BeSI dan voor elke werkzaamheid apart.</p>
+                    </div>
+                  </dso-info>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="besi-ja" value="true"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="besi-ja" value="true" name="besi" class="sc-dso-selectable">
+                        <label for="besi-ja" class="sc-dso-selectable sc-dso-selectable-s">Ja</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="besi-nee" value="false"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="besi-nee" value="false" name="besi" class="sc-dso-selectable">
+                        <label for="besi-nee" class="sc-dso-selectable sc-dso-selectable-s">Nee</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-radios dso-inline">
+                <legend class="sr-only">Staat in het BeSI-rapport dat beschermde dieren of planten aanwezig kunnen zijn op de locatie van uw werkzaamheid?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Staat in het BeSI-rapport dat beschermde dieren of planten aanwezig kunnen zijn op de locatie van uw werkzaamheid?</span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="besi-rapport-ja" value="true"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="besi-rapport-ja" value="true" name="besi-rapport" class="sc-dso-selectable">
+                        <label for="besi-rapport-ja" class="sc-dso-selectable sc-dso-selectable-s">Ja</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="besi-rapport-nee" value="false"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="besi-rapport-nee" value="false" name="besi-rapport" class="sc-dso-selectable">
+                        <label for="besi-rapport-nee" class="sc-dso-selectable sc-dso-selectable-s">Nee</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-checkboxes" aria-describedby="toelichting-soorten">
+                <legend class="sr-only">BeSI-rapport: Welke beschermde dieren of planten kunnen aanwezig zijn op de locatie van uw werkzaamheid?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">BeSI-rapport: Welke beschermde dieren of planten kunnen aanwezig zijn op de locatie van uw werkzaamheid?</span>
+                  <dso-info fixed="" active="" class="hydrated" id="toelichting-soorten">
+                    <div class="dso-rich-content">
+                      <p>Kijk in het onderdeel "Soorten en adviezen" van het BeSI-rapport. Daarin staat welke beschermde dieren of planten aanwezig kunnen zijn op de locatie van uw werkzaamheid. BeSI heeft daarbij al rekening gehouden met het type werkzaamheid dat u gaat uitvoeren.</p>
+                      <p>De beschermde dieren moet u indelen in een diersoort. Kies hier de diersoort of diersoorten.<br>
+                      Als u niet weet of de beschermde dieren uit het BeSI-rapport vogels, zoogdieren of een andere diersoort zijn, dan kunt u kijken in het <a href="https://www.nederlandsesoorten.nl/" target="_blank" rel="noopener noreferrer">Nederlands Soortenregister</a>.</p>
+                    </div>
+                  </dso-info>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="checkbox" identifier="soort-vogels" value="Vogels"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="checkbox" id="soort-vogels" value="Vogels" name="soorten" class="sc-dso-selectable">
+                        <label for="soort-vogels" class="sc-dso-selectable sc-dso-selectable-s">Vogels</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="checkbox" identifier="soort-zoogdieren" value="Zoogdieren"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="checkbox" id="soort-zoogdieren" value="Zoogdieren" name="soorten" class="sc-dso-selectable">
+                        <label for="soort-zoogdieren" class="sc-dso-selectable sc-dso-selectable-s">Zoogdieren</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="checkbox" identifier="soort-andere" value="Andere diersoorten dan vogels of zoogdieren"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="checkbox" id="soort-andere" value="Andere diersoorten dan vogels of zoogdieren" name="soorten" class="sc-dso-selectable">
+                        <label for="soort-andere" class="sc-dso-selectable sc-dso-selectable-s">Andere diersoorten dan vogels of zoogdieren</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="checkbox" identifier="soort-planten" value="Planten"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="checkbox" id="soort-planten" value="Planten" name="soorten" class="sc-dso-selectable">
+                        <label for="soort-planten" class="sc-dso-selectable sc-dso-selectable-s">Planten</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                </div>
+              </fieldset>
+            </fieldset>
+
+            <div class="dso-form-buttons">
+              <button type="button" class="dso-primary">
+                <span>Volgende stap</span>
+              </button>
+            </div>
+
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk in het BeSI-rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Uitvoering werkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk in het BeSI-rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Dakkapel of Dakopbouw (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Plaats dakkapel (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Welstand (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Soort en maten dakkapel (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Monument/archeologisch monument en stads- of dorpsgezicht (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Monumenten (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermd stads- of dorpsgezicht (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+        </dso-accordion>
+
+        <h3>Bouwmateriaal, container of ander object tijdelijk plaatsen</h3>
+
+        <dso-accordion class="hydrated">
+
+          <dso-accordion-section heading="h4"
+            handle-title="Vragen over roerende zaken opslaan (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+        </dso-accordion>
+
+        <h3>Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen</h3>
+
+        <dso-accordion class="hydrated">
+
+          <dso-accordion-section heading="h4"
+            handle-title="Slopen of asbest weghalen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Hoeveelheid sloopafval (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Seizoensgebonden bouwwerk (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Asbest weghalen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Asbest weghalen door een bedrijf (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Vloerbedekking met asbest weghalen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Asbestplaten weghalen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Hoeveelheid asbest (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Type werkzaamheid (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde dieren of planten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk in het BeSI-rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Uitvoering werkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk in het BeSI-rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Vrijstelling (vragen van de provincie)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Venloschol (vragen van de provincie)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Lozen bij reinigen, conserveren, bouwen, renoveren of slopen van bouwwerken - Waterschap Limburg (vragen van het waterschap)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+        </dso-accordion>
+
+
+        <div class="dso-form-buttons">
+          
+          <div class="dso-aside">
+            <button type="button" class="dso-tertiary" onclick="gaNaarOverzicht()">
+              <dso-icon icon="chevron-left"
+                class="hydrated"></dso-icon><span>Vorige
+                stap</span>
+            </button>
+            
+          </div>
+          
+          <button type="button" class="dso-secondary"  onclick="gaNaarConclusie()">
+            <span>Volgende
+              stap</span><dso-icon icon="chevron-right"
+              class="hydrated"></dso-icon>
+          </button>
+          
+        </div>
+      </form>
+      
+    </main>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="vcheck-common.js"></script>
+  <script>
+    function gaNaarConclusie() { window.location.href = 'conclusie-dakkapel.html'; }
+  </script>
+</body>
+
+</html>

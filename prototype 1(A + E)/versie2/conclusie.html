@@ -42,263 +42,87 @@
         </div>
 
 
-        <h2>Wat gaat u doen?</h2>
+        <form class="form-horizontal">
+          <div data-testid="whattodo-content" class="dso-rich-content">
+            <h2>Wat gaat u doen?</h2>
+            <p>U heeft de Vergunningcheck gedaan voor de volgende werkzaamheden:</p>
+            <ul data-testid="whattodo-werkzaamheid-list">
+              <li class="dso-status-warning"><strong>Niet compleet: </strong>Boom of beplanting onderhouden of weghalen
+              </li>
+              <li class="dso-status-warning"><strong>Niet compleet: </strong>Graven in bodem of waterbodem</li>
+            </ul>
+            <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
+          </div><dso-action-list list-title="Voorlopige actielijst Omgevingsloket"
+            class="hydrated"><dso-action-list-item step="1" flow-line="true" class="flow-line hydrated"><button
+                id="action-list-download-pdf" class="btn dso-secondary " type="button"><dso-icon
+                  class="hydrated"></dso-icon><span>Download de actielijst als
+                  pdf</span></button></dso-action-list-item><dso-action-list-item
+              item-title="Maak de actielijst compleet" step="2" flow-line="" class="flow-line hydrated"><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Beantwoord-de-openstaande-vragen" id="284621081"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion></dso-action-list-item><dso-action-list-item
+              item-title="Neem contact op met de gemeente" class="divider hydrated" step="3"><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Gemeente: Moet u iets regelen voor 'Boom planten of beplanting aanbrengen'?"
+                  id="3196782939"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion></dso-action-list-item><dso-action-list-item
+              item-title="Let op" class="hydrated" step="4" warning="true">
+              <p>Deze actielijst is niet compleet. Mogelijk moet u meer of andere zaken regelen voordat u daadwerkelijk
+                met de werkzaamheden mag starten.&nbsp;<a role="button" tabindex="0">Ga terug naar de vorige
+                  stap</a>&nbsp;en beantwoord de openstaande vragen.</p>
+            </dso-action-list-item>
+            <div data-testid="heeft-u-vragen-content" class="dso-rich-content">
+              <h2>Heeft u vragen?</h2>
+              <p>Neem contact op met de gemeente of het waterschap.</p><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Contactinformatie gemeente Venlo" id="00000001001567834000"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion><dso-accordion
+                class="hydrated" variant="conclusion"><dso-accordion-section
+                  data-testid="dso-accordion-section" handle-title="Contactinformatie waterschap Limburg" id="00000001857127858000"
+                  class="dso-accordion-section hydrated dso-accordion-neutral"></dso-accordion-section></dso-accordion>
+            </div>
+          </dso-action-list>
+        </form>
 
 
-        <div class="dso-rich-content">
-          <p>U heeft een vergunningscheck gedaan voor de volgende werkzaamheden:</p>
-          <ul>
-            <li>Bedrijf dat afvalwater zuivert</li>
-            <li>Antenne plaatsen, verplaatsen of vervangen</li>
-          </ul>
-          <p>Hieronder staat uitgelegd wat u moet regelen en waar u rekening mee moet houden.</p>
-        </div>
+        <div class="dso-form-buttons">
 
-        <dso-action-list list-title="Actielijst Omgevingsloket" class="hydrated">
-          <dso-action-list-item step="1" flow-line="true" class="flow-line hydrated">
-            <button type="button" class="dso-secondary">
-              <dso-icon icon="download" class="hydrated"></dso-icon><span>Download de actielijst als
-                PDF</span>
+          <div class="dso-aside">
+            <button type="button" class="dso-secondary" onclick="gaNaarVragen()">
+              <dso-icon icon="chevron-left" class="hydrated"></dso-icon><span>Antwoorden
+                aanpassen</span>
             </button>
-          </dso-action-list-item><dso-action-list-item step="2"
-            item-title="Neem contact op met het waterschap en de gemeente" flow-line="true" class="flow-line hydrated">
-
-            <dso-accordion class="hydrated" variant="compact-black">
-              <dso-accordion-section heading="h4" class="dso-accordion-section hydrated dso-accordion-neutral">
-
-                <div class="dso-rich-content">
-                  <h5>Algemene toelichting</h5>
-                  <p>
-                    Het waterschap heeft aanvullende informatie nodig om met zekerheid te kunnen zeggen wat u
-                    moet regelen. Mogelijk moet u voorafgaand aan uw werkzaamheden een vergunning aanvragen,
-                    melding doen of informatie geven.
-                  </p>
-                  <h5>Voorbereiding</h5>
-                  <p>
-                    Houd de informatie bij de hand die te maken heeft met de werkzaamheden "Verharding
-                    aanbrengen of vervangen".
-                  </p>
-                  <h5>Contactinfromatie Waterschap Amstel, Gooi en Vecht</h5>
-                  <span><dso-icon icon="call" class="hydrated"></dso-icon> Telefoon: 0900
-                    9394</span>
-                  <span><dso-icon icon="weather" class="hydrated"></dso-icon>
-                    <a href="#" class="extern" target="_blank" rel="noopener noreferrer">www.agv.nl<span
-                        class="sr-only">(Opent andere website in nieuw tabblad)</span></a></span>
-                  <span><dso-icon icon="buildings" class="hydrated"></dso-icon> Bezoekadres: Korte
-                    Ouderkerkerdijk 7, 1096AC
-                    Amsterdam</span>
-                </div>
-              </dso-accordion-section><dso-accordion-section heading="h4"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section><dso-accordion-section heading="h4"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section>
-            </dso-accordion>
-
-          </dso-action-list-item><dso-action-list-item step="3" item-title="Vergunning aanvragen" flow-line="true"
-            class="flow-line hydrated">
-
-            <dso-accordion class="hydrated" variant="compact-black">
-              <dso-accordion-section open="" heading="h4" class="dso-accordion-section hydrated dso-accordion-neutral">
-
-                <div class="dso-rich-content">
-                  <h5>Algemene informatie</h5>
-                  <p>
-                    U heeft de vergunning nodig voordat u mag beginnen met hieronder genoemde werkzaamheden.
-                    Houd rekening met een doorlooptijd voor de behandeling van uw aanvraag.
-                  </p>
-                  <h5>Toelichting</h5>
-                  <p>
-                    U moet zich naast de regels uit de vergunning ook houden aan de algemene regels voor deze
-                    activiteit. In
-                    <span>
-                      <a href="#">Maatregelen op Maat<dso-icon icon="external-link"
-                          class="hydrated"></dso-icon></a></span>
-                    vindt u de maatregelen waarmee u aan deze regels kunt voldoen.
-                  </p>
-                  <h5>Voorbereiding op uw aanvraag</h5>
-                  <p>
-                    Houd de informatie bij de hand die te maken heeft met de werkzaamheden 'Bedrijf dat
-                    afvalwater zuivert'.
-                  </p>
-
-                  <div class="dso-form-buttons">
-
-
-                    <button type="button" class="dso-secondary">
-                      <span>Aanvraag
-                        voorbereiden</span><dso-icon icon="chevron-right" class="hydrated"></dso-icon>
-                    </button>
-
-                  </div>
-                </div>
-              </dso-accordion-section><dso-accordion-section heading="h4"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section><dso-accordion-section heading="h4"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section>
-            </dso-accordion>
-
-          </dso-action-list-item><dso-action-list-item step="4" item-title="Melden en informatie geven" flow-line="true"
-            class="flow-line hydrated">
-
-            <dso-accordion class="hydrated" variant="compact-black">
-              <dso-accordion-section heading="h4" class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section><dso-accordion-section heading="h4"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section>
-            </dso-accordion>
-
-          </dso-action-list-item><dso-action-list-item step="5" item-title="Om rekening mee te houden" flow-line="true"
-            divider="true" class="divider flow-line hydrated">
-
-            <dso-accordion class="hydrated" variant="compact-black">
-              <dso-accordion-section heading="h4" class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section>
-            </dso-accordion>
-
-          </dso-action-list-item><dso-action-list-item step="6" item-title="Start de werkzaamheden"
-            class="hydrated"></dso-action-list-item>
-
-          <div class="dso-rich-content">
-            <h2>Heeft u vragen?</h2>
-
-            <dso-accordion class="hydrated" variant="compact-black">
-              <dso-accordion-section open="" heading="h3" class="dso-accordion-section hydrated dso-accordion-neutral">
-
-                <dso-contact-information class="hydrated">
-
-                  <h4 slot="heading">Gemeente Utrecht</h4>
-
-                  <ul slot="anchor-items">
-
-                    <li><a href="tel:40-303"><dso-icon icon="call" class="hydrated"></dso-icon><span>14-303</span></a>
-                    </li>
-                    <li><a href="/cdn-cgi/l/email-protection#86e8e9abf4e3f6eaffc6e2f5e9abf2e9e9eaedeff2a8e8ea"><dso-icon icon="mail-outline"
-                          class="hydrated"></dso-icon><span><span class="__cf_email__" data-cfemail="fb9594899e8b9782bb9f8894d68f94949790928fd59597">[email&#160;protected]</span></span></a>
-                    </li>
-                    <li><a href="https://www.google.nl" class="extern" target="_blank"
-                        rel="noopener noreferrer"><dso-icon icon="external-link"
-                          class="hydrated"></dso-icon><span>Online
-                          contactformulier</span><span class="sr-only">(Opent andere website in
-                          nieuw tabblad)</span></a></li>
-                    <li><a href="https://www.utrecht.nl" class="extern" target="_blank"
-                        rel="noopener noreferrer"><dso-icon icon="external-link"
-                          class="hydrated"></dso-icon><span>www.utrecht.nl</span><span class="sr-only">(Opent andere
-                          website in nieuw tabblad)</span></a></li>
-
-                  </ul>
-
-
-                  <ul slot="info-items">
-
-                    <li>Bezoekadres: Stadsplateau 1, 3521AZ Utrecht</li>
-                    <li>Postadres: afd. Bouwvergunningen, Postbus 100, 3500AA Utrecht</li>
-                  </ul>
-
-                </dso-contact-information>
-                <dso-contact-information class="hydrated">
-
-
-                  <ul slot="anchor-items">
-
-                    <li><a href="tel:40-303"><dso-icon icon="call" class="hydrated"></dso-icon><span>14-303</span></a>
-                    </li>
-                    <li><a href="/cdn-cgi/l/email-protection#4f2120623d2a3f23360f2b3c20623b20202324263b612123"><dso-icon icon="mail-outline"
-                          class="hydrated"></dso-icon><span><span class="__cf_email__" data-cfemail="ec82839e899c8095ac889f83c198838380878598c28280">[email&#160;protected]</span></span></a>
-                    </li>
-                    <li><a href="https://www.google.nl" class="extern" target="_blank"
-                        rel="noopener noreferrer"><dso-icon icon="external-link"
-                          class="hydrated"></dso-icon><span>Online
-                          contactformulier</span><span class="sr-only">(Opent andere website in
-                          nieuw tabblad)</span></a></li>
-                    <li><a href="https://www.utrecht.nl" class="extern" target="_blank"
-                        rel="noopener noreferrer"><dso-icon icon="external-link"
-                          class="hydrated"></dso-icon><span>www.utrecht.nl</span><span class="sr-only">(Opent andere
-                          website in nieuw tabblad)</span></a></li>
-
-                  </ul>
-
-
-                  <ul slot="info-items">
-
-                    <li>Bezoekadres: Stadsplateau 1, 3521AZ Utrecht</li>
-                    <li>Postadres: afd. Bouwvergunningen, Postbus 100, 3500AA Utrecht</li>
-                  </ul>
-
-                </dso-contact-information>
-
-              </dso-accordion-section><dso-accordion-section heading="h3"
-                class="dso-accordion-section hydrated dso-accordion-neutral">
-
-              </dso-accordion-section>
-            </dso-accordion>
 
           </div>
-        </dso-action-list>
 
-      </form>
+          <button type="button" class="dso-secondary">
+            <dso-icon icon="download" class="hydrated"></dso-icon><span>Actielijst
+              downloaden</span>
+          </button>
 
-
-      <dso-alert status="warning" class="hydrated">
-
-        <div class="dso-rich-content">
-
-          <h2>Let op!</h2>
-          <p>
-            De actielijst wordt niet bewaard. Download daarom de actielijst. Ga daarna door naar "Aanvragen en
-            voorbereiden", dan wordt de informatie uit de actielijst meegenomen in uw aanvraag.
-          </p>
-
-        </div>
-      </dso-alert>
-
-
-      <div class="dso-form-buttons">
-
-        <div class="dso-aside">
-          <button type="button" class="dso-secondary" onclick="gaNaarVragen()">
-            <dso-icon icon="chevron-left" class="hydrated"></dso-icon><span>Antwoorden
-              aanpassen</span>
+          <button type="button" class="dso-primary">
+            <span>Aanvragen en
+              voorbereiden</span>
           </button>
 
         </div>
 
-        <button type="button" class="dso-secondary">
-          <dso-icon icon="download" class="hydrated"></dso-icon><span>Actielijst
-            downloaden</span>
-        </button>
-
-        <button type="button" class="dso-primary">
-          <span>Aanvragen en
-            voorbereiden</span>
-        </button>
-
-      </div>
-
-      <hr>
+        <hr>
 
 
-      <div class="dso-rich-content">
-        <p>
-          <em class="text-muted">De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een
-            algemene indruk
-            of er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met
-            veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u
-            geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog)
-            niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere
-            vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze
-            Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan
-            contact op te nemen met uw gemeente en/of waterschap.</em>
-        </p>
-      </div>
+        <div class="dso-rich-content">
+          <p>
+            <em class="text-muted">De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een
+              algemene indruk
+              of er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met
+              veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u
+              geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog)
+              niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere
+              vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze
+              Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan
+              contact op te nemen met uw gemeente en/of waterschap.</em>
+          </p>
+        </div>
     </main>
 
 

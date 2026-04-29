@@ -107,7 +107,7 @@
     <div class="row">
       <div class="col-xs-12 text-center">
         <h2>Wilt u weten of u een vergunning nodig heeft?</h2><button id="landingspagina-to-vergunningcheck-bottom"
-          type="button" class="btn dso-primary">Doe de Vergunningcheck</button>
+          type="button" class="btn dso-primary" onclick="gaNaarLocatie()">Doe de Vergunningcheck</button>
       </div>
     </div>
     <hr>
@@ -179,6 +179,7 @@
   </div>
 
 
+  <script>sessionStorage.removeItem('vcheck_state');</script>
   <script src="vcheck-common.js"></script>
 </body>
 

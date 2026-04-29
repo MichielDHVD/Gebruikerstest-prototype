@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+  <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="https://cdn.dso-toolkit.nl/91.0.0/core/dso-toolkit.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html', active: true },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+    <div id="wizard">
+      <div class="dso-app-heading">
+        <h1>Vergunningcheck</h1>
+        <h2 id="step-indicator" class="dso-steps-indicator">2. Kies werkzaamheden - extra werkzaamheden<span
+            class="dso-step">Stap 2/4</span></h2>
+      </div>
+      <form class="form-vertical">
+        <div class="row form-group">
+          <div class="col-md-4 col-md-push-8">
+            <div id="mijn-winkelmandje"></div>
+          </div>
+          <div class="col-md-8 col-md-pull-4">
+
+            <fieldset class="dso-form-group-collection">
+              <legend class="sr-only">
+                <h4>Kies alles dat u nog meer wilt doen. U mag deze stap ook overslaan.</h4>
+              </legend>
+              <div class="dso-context-wrapper"><span class="dso-context-label" aria-hidden="true">
+                  <h4>Kies alles dat u nog meer wilt doen. U mag deze stap ook overslaan.</h4>
+                </span></div><dso-list-button data-testid="listbutton-undefined-option-0"
+                class="hydrated" label="Bouwwerk of deel van een bouwwerk slopen, of asbest verwijderen"></dso-list-button><dso-list-button data-testid="listbutton-undefined-option-1"
+                class="hydrated" label="Bouwmateriaal, container of ander object tijdelijk plaatsen">
+            </fieldset>
+          </div>
+        </div>
+        <div class="dso-form-buttons">
+          <div class="dso-aside"><a id="back-button-bottom" href="werkzaamheden.html" class="btn dso-tertiary "
+              data-testid="back-button-bottom"><dso-icon class="hydrated"
+                icon="chevron-left"></dso-icon><span>Vorige</span></a></div>
+          <button id="save-check-from-wizard" class="btn dso-secondary " type="button"><dso-icon class="hydrated"
+              icon="user-solid"></dso-icon><span>Vergunningcheck opslaan</span></button><button id="next-button-bottom"
+            class="btn dso-primary " type="button" data-testid="next-button-bottom" onclick="gaNaarVolgendeVanuitExtraWerkzaamheden()"><span>Volgende</span><dso-icon
+              class="hydrated" icon="chevron-right"></dso-icon></button>
+        </div>
+      </form>
+    </div>
+
+
+    <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="vcheck-common.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { if (gekozenItems.size === 0 && subItems.size === 0) window.location.href = 'werkzaamheden.html'; });</script>
+  <script>
+    // Zoek alle zojuist getekende list-buttons
+        const listButtons = document.querySelectorAll('dso-list-button');
+        console.log(listButtons)
+        listButtons.forEach(button => {
+          // 1. Zorg dat de knop 'checked' blijft als hij al in je selectie zat
+          if (gekozenItems.has(button.getAttribute('label'))) {
+            button.setAttribute('checked', '');
+          }
+
+          // 2. Voeg de listener toe voor het aan/uit vinken
+          button.addEventListener('dsoSelectedChange', (e) => {
+            const label = e.target.getAttribute('label');
+            const isCurrentlyChecked = e.target.hasAttribute('checked');
+
+            if (isCurrentlyChecked) {
+              e.target.removeAttribute('checked');
+              gekozenItems.delete(label);
+            } else {
+              e.target.setAttribute('checked', '');
+              gekozenItems.add(label);
+            }
+
+            slaSessionOp();
+            renderWinkelmandje();
+          });
+        });
+
+  </script>
+</body>
+
+</html>

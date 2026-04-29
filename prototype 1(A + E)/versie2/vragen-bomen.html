@@ -44,140 +44,272 @@
         <h3>Boom of beplanting onderhouden of weghalen</h3>
         
         <dso-accordion class="hydrated">
+
           <dso-accordion-section open="" heading="h4"
-            status-description="0 van 5 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
-            
+            handle-title="Locatie van de bomen of beplanting (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+
             <fieldset>
               <legend class="sr-only">Vragenlijst</legend>
-              
-              <fieldset class="form-group dso-radios  dso-inline " aria-describedby="radios-info-text">
-                <legend class="sr-only">Test Vraag 1</legend>
+
+              <fieldset class="form-group dso-radios dso-inline">
+                <legend class="sr-only">Staan alle bomen of andere beplanting die u wilt gaan verwijderen of onderhouden op een erf of in een tuin?</legend>
                 <div class="dso-label-container">
-                  <span class="control-label" aria-hidden="true">Test Vraag 1</span>
-                  
-                  <dso-info fixed="" active="" class="hydrated">
+                  <span class="control-label" aria-hidden="true">Staan alle bomen of andere beplanting die u wilt gaan verwijderen of onderhouden op een erf of in een tuin?</span>
+                </div>
+                <div class="dso-field-container">
+                  <dso-selectable type="radio" identifier="erf-tuin-ja" value="true"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="erf-tuin-ja" value="true" name="erf-tuin" class="sc-dso-selectable">
+                        <label for="erf-tuin-ja" class="sc-dso-selectable sc-dso-selectable-s">Ja</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                  <dso-selectable type="radio" identifier="erf-tuin-nee" value="false"
+                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
+                    <div class="dso-selectable-container sc-dso-selectable">
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="erf-tuin-nee" value="false" name="erf-tuin" class="sc-dso-selectable">
+                        <label for="erf-tuin-nee" class="sc-dso-selectable sc-dso-selectable-s">Nee</label>
+                      </div>
+                    </div>
+                  </dso-selectable>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group dso-radios" aria-describedby="toelichting-locatie">
+                <legend class="sr-only">Waar staat de boom of beplanting die u wilt gaan verwijderen of onderhouden?</legend>
+                <div class="dso-label-container">
+                  <span class="control-label" aria-hidden="true">Waar staat de boom of beplanting die u wilt gaan verwijderen of onderhouden?</span>
+                  <dso-info fixed="" active="" class="hydrated" id="toelichting-locatie">
                     <div class="dso-rich-content">
-                      <p>Vaste toelichting bij een vraag.</p>
+                      <h4>Wat is de bebouwingscontour houtkap?</h4>
+                      <p>Dit is een gebied dat de gemeente kan aanwijzen in het omgevingsplan en waar zij regels kunnen stellen aan het kappen van bomen. Dit gebied is vaak hetzelfde als de bebouwde kom maar dat hoeft niet. Kijk op de website van de gemeente wat de grenzen van het gebied zijn van de bebouwingscontour houtkap.</p>
                     </div>
                   </dso-info>
                 </div>
                 <div class="dso-field-container">
-                  
-                  <dso-selectable type="radio" identifier="antwoord-radio-1" value="Antwoord 1"
+                  <dso-selectable type="radio" identifier="locatie-binnen" value="Binnen de bebouwingscontour houtkap"
                     class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
                     <div class="dso-selectable-container sc-dso-selectable">
-                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="radio"
-                          id="antwoord-radio-1" value="Antwoord 1" class="sc-dso-selectable"><label
-                          for="antwoord-radio-1" class="sc-dso-selectable sc-dso-selectable-s">
-                          Antwoord 1 
-                          
-                        </label></div>
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="locatie-binnen" value="Binnen de bebouwingscontour houtkap" name="locatie" class="sc-dso-selectable">
+                        <label for="locatie-binnen" class="sc-dso-selectable sc-dso-selectable-s">Binnen de bebouwingscontour houtkap</label>
+                      </div>
                     </div>
                   </dso-selectable>
-                  
-                  <dso-selectable type="radio" identifier="antwoord-radio-2" value="Antwoord 2"
+                  <dso-selectable type="radio" identifier="locatie-buiten" value="Buiten de bebouwingscontour houtkap"
                     class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
                     <div class="dso-selectable-container sc-dso-selectable">
-                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="radio"
-                          id="antwoord-radio-2" value="Antwoord 2" class="sc-dso-selectable"><label
-                          for="antwoord-radio-2" class="sc-dso-selectable sc-dso-selectable-s">
-                          Antwoord 2 
-                          
-                        </label></div>
+                      <div class="dso-selectable-input-wrapper sc-dso-selectable">
+                        <input type="radio" id="locatie-buiten" value="Buiten de bebouwingscontour houtkap" name="locatie" class="sc-dso-selectable">
+                        <label for="locatie-buiten" class="sc-dso-selectable sc-dso-selectable-s">Buiten de bebouwingscontour houtkap</label>
+                      </div>
                     </div>
                   </dso-selectable>
-                  
-                  
-                  
                 </div>
               </fieldset>
-              
-              <fieldset class="form-group dso-checkboxes   ">
-                <legend class="sr-only">Test Vraag 2</legend>
-                <div class="dso-label-container">
-                  <span class="control-label" aria-hidden="true">Test Vraag 2</span>
-                  
-                  
-                </div>
-                <div class="dso-field-container">
-                  
-                  <dso-selectable type="checkbox" identifier="antwoord-checkbox-1" value="Antwoord 1"
-                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
-                    <div class="dso-selectable-container sc-dso-selectable">
-                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="checkbox"
-                          id="antwoord-checkbox-1" value="Antwoord 1" class="sc-dso-selectable"><label
-                          for="antwoord-checkbox-1" class="sc-dso-selectable sc-dso-selectable-s">
-                          Antwoord 1 
-                          
-                        </label></div>
-                    </div>
-                  </dso-selectable>
-                  
-                  <dso-selectable type="checkbox" identifier="antwoord-checkbox-2" value="Antwoord 2"
-                    class="sc-dso-selectable-h sc-dso-selectable-s hydrated">
-                    <div class="dso-selectable-container sc-dso-selectable">
-                      <div class="dso-selectable-input-wrapper sc-dso-selectable"><input type="checkbox"
-                          id="antwoord-checkbox-2" value="Antwoord 2" class="sc-dso-selectable"><label
-                          for="antwoord-checkbox-2" class="sc-dso-selectable sc-dso-selectable-s">
-                          Antwoord 2 
-                          
-                        </label></div>
-                    </div>
-                  </dso-selectable>
-                  
-                  
-                  
-                </div>
-              </fieldset>
-
-              
-              <div class="form-group dso-input  dso-input-text dso-required ">
-                <div class="dso-label-container">
-                  <label class="control-label" for="vraag 3"> Vul hier uw antwoord in </label>
-                  
-                  
-                </div>
-                <div class="dso-field-container">
-                  
-                  <input class="form-control" type="text" id="vraag 3" value="Placeholder " aria-invalid="false"
-                    required="">
-
-                  
-                  
-                  
-                </div>
-              </div>
-
             </fieldset>
-            <div class="dso-form-buttons">
-              
-              <button type="button" class="dso-primary">
-                <span>Volgende
-                  stap</span>
-              </button>
 
+            <div class="dso-form-buttons">
+              <button type="button" class="dso-primary">
+                <span>Volgende stap</span>
+              </button>
             </div>
 
-          </dso-accordion-section><dso-accordion-section heading="h4"
-            status-description="2 van 3 vragen beantwoord" status="danger"
-            class="dso-accordion-section hydrated dso-accordion-default">
-            
-          </dso-accordion-section><dso-accordion-section heading="h4"
-            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
-            
-          </dso-accordion-section><dso-accordion-section heading="h4"
-            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
-            
-          </dso-accordion-section><dso-accordion-section heading="h4"
-            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
-            
-          </dso-accordion-section><dso-accordion-section heading="h4"
-            status-description="0 van 3 vragen beantwoord" class="dso-accordion-section hydrated dso-accordion-default">
-            
           </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Boom of struik onderhouden of verwijderen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Kleinere aantallen bomen en/of struiken (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Doel van bomen en/of struiken (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Kerstbomen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beplanting langs wegen, waterwegen of landbouwgronden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Populieren, wilgen, essen of elzen (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Productie van biomassa (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Diverse vragen bomen en/of struiken (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde dieren of planten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk in het BeSI rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Uitvoering werkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk in het BeSI rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Hoofdvragen boom kappen (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
         </dso-accordion>
 
-        
+        <h3 class="activiteit-title">Graven in bodem of waterbodem</h3>
+
+        <dso-accordion class="hydrated">
+
+          <dso-accordion-section heading="h4"
+            handle-title="Soort en omvang werkzaamheid (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Tijdelijk uitnemen van grond (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Ontgronding of niet (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Doel graafwerkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Waterput, bassin, vijver, poel of iets vergelijkbaars (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Natuurvriendelijke oever of ander natuurbouwproject (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Oppervlaktewater, waterkering of ander waterstaatswerk (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Plein, parkeerterrein, weg, spoorweg of luchthaven (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Andere werkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Werkzaamheden in opdracht van de overheid (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde dieren of planten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk in het BeSI rapport (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Uitvoering werkzaamheden (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde vogels: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Beschermde zoogdieren: Kijk buiten (vragen van het Rijk)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Vrijstelling (vragen van de provincie)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Venloschol (vragen van de provincie)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Soort en omvang werkzaamheid (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Tijdelijk uitnemen van grond (vragen van de gemeente)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Project realiseren bij oppervlaktewater Waterschap Limburg (vragen van het waterschap)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+          <dso-accordion-section heading="h4"
+            handle-title="Lozen bij ontgravingen baggerwerkzaamheden en werkzaamheden door de waterbeheerder op een oppervlaktewater Waterschap Limburg (vragen van het waterschap)"
+            class="dso-accordion-section hydrated dso-accordion-default">
+          </dso-accordion-section>
+
+        </dso-accordion>
+
+
         <div class="dso-form-buttons">
           
           <div class="dso-aside">
@@ -259,6 +391,9 @@
 
 
   <script src="vcheck-common.js"></script>
+  <script>
+    function gaNaarConclusie() { window.location.href = 'conclusie.html'; }
+  </script>
 </body>
 
 </html>

@@ -44,15 +44,14 @@
                 data-testid="dso-accordion-section-Garagebedrijf,-autoschadeherstelbedrijf,-autowasstraat-of-bedrijf-voor-carrosseriebouw"
                 id="http://toepasbare-regels.omgevingswet.overheid.nl/werkzaamheden/id/concept/BedrijfVoorOnderhoudReparatieWassenOfBouwVanAutoS"
                 class="dso-accordion-section hydrated dso-accordion-default" open="" handle-title="Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw">
-                <fieldset >
+                <fieldset>
                   <legend class="sr-only">
                     <h4>Kies alles dat ook van toepassing is voor 'Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw'</h4>
                   </legend>
                   <div class="dso-context-wrapper"><span class="dso-context-label" aria-hidden="true">
                       <h4>Kies alles dat ook van toepassing is voor 'Garagebedrijf, autowasstraat of bedrijf voor carrosiebouw'</h4>
-                    </span></div>
-                    <dso-list-button data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-0"
-                    class="hydrated" label="Andere materialen dan steen of metaal bewerken" identifier="bedrijfstak"></dso-list-button><dso-list-button
+                    </span></div><dso-list-button data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-0"
+                    class="hydrated" label="Andere materialen dan steen of metaal bewerken"></dso-list-button><dso-list-button
                     data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-1"
                     class="hydrated" label="Auto's of andere gemotoriseerde voertuigen of werktuigen onderhouden of repareren"></dso-list-button><dso-list-button
                     data-testid="listbutton-verfijnd-werkzaamheden-1050153437-option-2"
@@ -156,34 +155,30 @@
     };
   </script>
   <script src="vcheck-common.js"></script>
-   <script>
-    // Zoek alle zojuist getekende list-buttons
-        const listButtons = document.querySelectorAll('dso-list-button');
-        console.log(listButtons)
-        listButtons.forEach(button => {
-          // 1. Zorg dat de knop 'checked' blijft als hij al in je selectie zat
-          if (gekozenItems.has(button.getAttribute('label'))) {
-            button.setAttribute('checked', '');
-          }
+  <script>document.addEventListener('DOMContentLoaded', function() { if (gekozenItems.size === 0 && subItems.size === 0) window.location.href = 'werkzaamheden.html'; });</script>
+  <script>
+    document.querySelectorAll('dso-list-button').forEach(button => {
+      // Herstel vinkje als sub-item al geselecteerd was
+      if (subItems.has(button.getAttribute('label'))) {
+        button.setAttribute('checked', '');
+      }
 
-          // 2. Voeg de listener toe voor het aan/uit vinken
-          button.addEventListener('dsoSelectedChange', (e) => {
-            const label = e.target.getAttribute('label');
-            const isCurrentlyChecked = e.target.hasAttribute('checked');
+      button.addEventListener('dsoSelectedChange', (e) => {
+        const label = e.target.getAttribute('label');
+        const isCurrentlyChecked = e.target.hasAttribute('checked');
 
-            if (isCurrentlyChecked) {
-              e.target.removeAttribute('checked');
-              gekozenItems.delete(label);
-            } else {
-              e.target.setAttribute('checked', '');
-              gekozenItems.add(label);
-            }
+        if (isCurrentlyChecked) {
+          e.target.removeAttribute('checked');
+          subItems.delete(label);
+        } else {
+          e.target.setAttribute('checked', '');
+          subItems.add(label);
+        }
 
-            slaSessionOp();
-            renderWinkelmandje();
-          });
-        });
-
+        slaSessionOp();
+        renderWinkelmandje();
+      });
+    });
   </script>
 </body>
 

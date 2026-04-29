@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vergunningcheck – Werkzaamheden</title>
+ <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/dso-toolkit/master/dist/dso.css" />
+ <link rel="stylesheet" href="prototype.css" />
+  <script type="module"
+    src="https://cdn.dso-toolkit.nl/@dso-toolkit/core/master/dist/dso-toolkit/dso-toolkit.esm.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="container">
+    <dso-header id="main-header" compact="auto" auth-status="loggedOut" login-url="#login" logout-url="#logout"
+      user-profile-url="#profiel" user-profile-name="J.A. Jansen" user-home-url="#myhome"
+      mainMenu="HeaderMenuItem[Home]">
+      <div slot="logo"><dso-logo></dso-logo></div>
+    </dso-header>
+    <script>
+      document.getElementById('main-header').mainMenu = [
+        { label: 'Home', url: 'index.html' },
+        { label: 'Vergunningcheck', url: 'Boomkappen.html' },
+        { label: 'Aanvragen', url: 'aanvragen.html' },
+        { label: 'Regels op de kaart', url: 'regels.html' },
+        { label: 'Maatregelen op maat', url: 'maatregelen.html' },
+      ];
+    </script>
+
+  <!-- Main -->
+    <div id="wizard">
+      <div class="dso-app-heading">
+        <h1>Vergunningcheck</h1>
+        <h2 id="step-indicator" class="dso-steps-indicator">1. Locatie<span class="dso-step">Stap 1/4</span></h2>
+      </div>
+      <form class="form-vertical">
+        <div id="locatie-selector-container">
+          <div id="locatie-selector-tabs"><dso-tabs class="hydrated"><dso-tab active="" class="hydrated">Zoek op
+                adres</dso-tab>
+              <div slot="panel" id="locatie-selector-tabs-pane-adres">
+                <div class="dso-justify-form-groups">
+                  <div class="form-group dso-form-group-search-bar">
+                    <div class="form-group">
+                      <div class="dso-search-bar">
+                        <div class="dso-search-bar-input"><label for="search-box"
+                            id="001418d6-e58e-44b6-86d0-dc42a520e732">Adres</label><span class="dso-search-icon"
+                            aria-hidden="true"></span><dso-autosuggest
+                            class="sc-dso-autosuggest-h sc-dso-autosuggest-s hydrated"><!----><input id="search-box"
+                              aria-label="Adres" placeholder="Zoek een adres" data-testid="test-search-input"
+                              type="text" value="" role="combobox" aria-haspopup="listbox" aria-expanded="false"
+                              autocomplete="off" aria-autocomplete="list" aria-activedescendant=""></dso-autosuggest>
+                        </div><button id="search-box-search-button" type="button" class="dso-secondary"
+                          data-testid="test-search-button">Zoeken</button>
+                      </div>
+                    </div><span aria-live="assertive" aria-atomic="true" class="sr-only"></span>
+                  </div>
+                </div>
+              </div><dso-tab class="hydrated">Postcode en huisnummer</dso-tab><dso-tab class="hydrated">Kadastraal
+                nummer</dso-tab><dso-tab class="hydrated">Coördinaten</dso-tab>
+            </dso-tabs></div><span aria-live="assertive" aria-atomic="true" class="screen-reader-text"></span>
+        
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <img src="img/Map boompjes.png" alt="Non-interactieve kaart" width="1120" height="400">
+          </div>
+        </div>
+        <div class="dso-form-buttons"><button id="save-check-from-wizard" class="btn dso-secondary "
+            type="button"><dso-icon icon="user-solid" class="hydrated"></dso-icon><span>Vergunningcheck opslaan</span></button><button
+            id="next-button-bottom" class="btn dso-primary " type="button"
+            data-testid="next-button-bottom" onclick="gaNaarWerkzaamheden()"><span>Volgende stap</span><dso-icon icon="chevron-right" class="hydrated"></dso-icon></button>
+        </div>
+      </form>
+    </div>
+     <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a><!----><!---->
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a><!----><!----></li><!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2><!----><!----><!---->
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a><!----><!----></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a><!----><!----></li>
+            <!---->
+          </ul><!----><!---->
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p><!---->
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p><!---->
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a><!----><!----></li>
+                <!---->
+              </ul><!---->
+            </div>
+          </div><!----><!---->
+        </div><!---->
+    </footer>
+  </div>
+
+  <script src="vcheck-common.js"></script>
+
+</body>
+
+</html>

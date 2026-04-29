@@ -48,7 +48,7 @@
                   <span class="dso-search-icon" aria-hidden="true"></span>
                   <input type="text" id="searchInput"
                     placeholder="Bijv: &apos;dakkapel&apos;, &apos;agrarisch&apos; of &apos;38.32.2&apos;...">
-                  <button type="button">Zoekopdracht legen</button>
+                  <button type="button" onclick="var el=document.getElementById('searchInput'); el.value=''; el.dispatchEvent(new Event('input'));">Zoekopdracht legen</button>
                 </div>
                 <button class="dso-secondary sr-only">Zoeken</button>
               </div>
@@ -65,17 +65,10 @@
                 </div>
               </div>
             </div>
-            <div id="resultsList" ></div>
+            <div id="resultsList"></div>
 
             <dso-pagination total-pages="1" current-page="1"></dso-pagination>
 
-            <div class="volgende-knop">
-              <a href="locatie.html" style="margin-left:16px;" class="dso-tertiary"> Terug</a>
-              <button type="button" class="dso-primary dso-button" onclick="slaOpEnGaNaarExtraBoomOfGarage()">
-                Volgende stap &rsaquo;
-              </button>
-
-            </div>
           </div>
 
           <div class="col-md-4">
@@ -86,211 +79,202 @@
               <legend>
                 <h3>Filters</h3>
               </legend>
-              <fieldset class="form-group dso-checkboxes   ">
-                <legend class="sr-only">Voor wie is het?</legend>
-                <div class="dso-label-container">
-                  <span class="control-label" aria-hidden="true">Voor wie is het?</span>
-                </div>
-                <div class="dso-field-container">
 
-                  <dso-selectable type="checkbox" identifier="checkbox_25" value="25">
-                    Voor uzelf <span class="filter-count"></span>
+              <dso-accordion variant="compact-black">
 
-                  </dso-selectable>
+                <dso-accordion-section heading="h2" handle-title="Voor wie is het?" open>
+                  <fieldset class="form-group dso-checkboxes   ">
+                    <legend class="sr-only">Voor wie is het?</legend>
+                    <div class="dso-label-container">
+                      <span class="control-label sr-only" aria-hidden="true">Voor wie is het?</span>
+                    </div>
+                    <div class="dso-field-container">
 
-                  <dso-selectable type="checkbox" identifier="checkbox_24" value="24">
-                    Voor uw bedrijf <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_25" value="25">
+                        Voor uzelf <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_26" value="26">
-                    Voor uzelf + bedrijf <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_24" value="24">
+                        Voor uw bedrijf <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_21" value="21">
-                    Voor de buurt/gemeente <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_26" value="26">
+                        Voor uzelf + bedrijf <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_22" value="22">
-                    Voor de overheid <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_21" value="21">
+                        Voor de buurt/gemeente <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_23" value="23">
-                    Voor het publiek <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_22" value="22">
+                        Voor de overheid <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
+                      <dso-selectable type="checkbox" identifier="checkbox_23" value="23">
+                        Voor het publiek <span class="filter-count"></span>
 
+                      </dso-selectable>
 
 
 
 
 
-                </div>
-              </fieldset>
 
-              <fieldset class="form-group dso-checkboxes   ">
-                <legend class="sr-only">Waar wilt u dit doen?</legend>
-                <div class="dso-label-container">
-                  <span class="control-label" aria-hidden="true">Waar wilt u dit doen?</span>
-                </div>
-                <div class="dso-field-container">
 
-                  <dso-selectable type="checkbox" identifier="checkbox_14" value="14">
-                    Eigen woning of tuin <span class="filter-count"></span>
+                    </div>
+                  </fieldset>
+                </dso-accordion-section>
 
-                  </dso-selectable>
+                <dso-accordion-section heading="h2" handle-title="Waar wilt u dit doen?">
 
-                  <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
-                    Bedrijfslocatie
+                  <fieldset class="form-group dso-checkboxes   ">
+                    <legend class="sr-only">Waar wilt u dit doen?</legend>
+                    <div class="dso-label-container">
+                      <span class="control-label sr-only" aria-hidden="true">Waar wilt u dit doen?</span>
+                    </div>
+                    <div class="dso-field-container">
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_14" value="14">
+                        Eigen woning of tuin <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_112" value="112">
-                    Water (sloot, vijver, rivier) <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
+                        Bedrijfslocatie <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
-                    Agrarisch terrein <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_112" value="112">
+                        Water (sloot, vijver, rivier) <span class="filter-count"></span>
 
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_13" value="13">
-                    Buitenlocatie <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
+                        Agrarisch terrein <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
 
+                      <dso-selectable type="checkbox" identifier="checkbox_13" value="13">
+                        Buitenlocatie <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_15" value="15">
-                    Grondwaterlocaties <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_16" value="16">
-                    Militaire locatie <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_15" value="15">
+                        Grondwaterlocaties <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_17" value="17">
-                    Natuurgebied <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_16" value="16">
+                        Militaire locatie <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_18" value="18">
-                    Openbare ruimte (markt, evenement) <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_17" value="17">
+                        Natuurgebied <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_19" value="19">
-                    Openbare ruimte (straat, plein, park) <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_18" value="18">
+                        Openbare ruimte <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_110" value="110">
-                    Specifieke locatie (brandweer, politiebureau) <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                    </div>
+                  </fieldset>
+                </dso-accordion-section>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_111" value="111">
-                    Vakantiepark recreatieterrein <span class="filter-count"></span>
+                <dso-accordion-section heading="h2" handle-title="Wat wilt u doen?">
+                  <fieldset class="form-group dso-checkboxes   ">
+                    <legend class="sr-only">Bestuurslaag</legend>
+                    <div class="dso-label-container">
+                      <span class="control-label sr-only" aria-hidden="true">Wat wilt u doen?</span>
+                    </div>
+                    <div class="dso-field-container">
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_3" value="3">
+                        Bouwen of verbouwen <span class="filter-count"></span>
+                      </dso-selectable>
 
+                      <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
+                        Sloopwerkzaamheden <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_113" value="113">
-                    Zeehaven <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
-                </div>
-              </fieldset>
+                      <dso-selectable type="checkbox" identifier="checkbox_9" value="9">
+                        Onderhoud en reperatie <span class="filter-count"></span>
 
-              <fieldset class="form-group dso-checkboxes   ">
-                <legend class="sr-only">Bestuurslaag</legend>
-                <div class="dso-label-container">
-                  <span class="control-label" aria-hidden="true">Wat wilt u doen?</span>
-                </div>
-                <div class="dso-field-container">
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_3" value="3">
-                    Bouwen of verbouwen <span class="filter-count"></span>
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_12" value="13">
+                        Tuin of erf aanpassen <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_11" value="11">
-                    Sloopwerkzaamheden <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
+                        Sloopwerkzaamheden of grondwerkzaamheden <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_9" value="9">
-                    Onderhoud en reperatie <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_1" value="1">
+                        Afvalbeheer en Recycling <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_12" value="13">
-                    Tuin of erf aanpassen <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_2" value="2">
+                        Bedrijf starten of veranderen <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_12" value="12">
-                    Sloopwerkzaamheden of grondwerkzaamheden <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_1" value="1">
-                    Afvalbeheer en Recycling <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_4" value="4">
+                        Chemische en Industriële Producten <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_2" value="2">
-                    Bedrijf starten of veranderen <span class="filter-count"></span>
+                      <dso-selectable type="checkbox" identifier="checkbox_5" value="5">
+                        Dieren houden <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      </dso-selectable>
 
+                      <dso-selectable type="checkbox" identifier="checkbox_6" value="6">
+                        Energie en gas <span class="filter-count"></span>
 
+                      </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_4" value="4">
-                    Chemische en Industriële Producten <span class="filter-count"></span>
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_7" value="7">
+                        Evenement organiseren <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_5" value="5">
-                    Dieren houden <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_8" value="8">
+                        Grondwerkzaamheden en funderingen <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_6" value="6">
-                    Energie en gas <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_7" value="7">
-                    Evenement organiseren <span class="filter-count"></span>
 
-                  </dso-selectable>
+                      <dso-selectable type="checkbox" identifier="checkbox_10" value="10">
+                        Overige activiteiten <span class="filter-count"></span>
 
-                  <dso-selectable type="checkbox" identifier="checkbox_8" value="8">
-                    Grondwerkzaamheden en funderingen <span class="filter-count"></span>
+                      </dso-selectable>
 
-                  </dso-selectable>
+                    </div>
+                  </fieldset>
+                </dso-accordion-section>
 
+              </dso-accordion>
 
 
-                  <dso-selectable type="checkbox" identifier="checkbox_10" value="10">
-                    Overige activiteiten <span class="filter-count"></span>
 
-                  </dso-selectable>
 
-
-
-
-
-
-                </div>
-              </fieldset>
 
 
 
@@ -301,8 +285,73 @@
             </fieldset>
           </div>
         </div>
+
+
+        <div class="dso-form-buttons">
+          <div class="dso-aside"><a id="back-button-bottom" href="locatie.html" class="btn dso-tertiary "
+              data-testid="back-button-bottom"><dso-icon class="hydrated"
+                icon="chevron-left"></dso-icon><span>Vorige</span></a></div>
+          <button id="save-check-from-wizard" class="btn dso-secondary " type="button"><dso-icon class="hydrated"
+              icon="user-solid"></dso-icon><span>Vergunningcheck opslaan</span></button><button id="next-button-bottom"
+            class="btn dso-primary " type="button" data-testid="next-button-bottom" onclick="slaOpEnGaNaarExtraBoomOfGarage()"><span>Volgende</span><dso-icon
+              class="hydrated" icon="chevron-right"></dso-icon></button>
+        </div>
       </div>
     </div>
+     <footer _ngcontent-ng-c2151317684="" id="footer" tabindex="-1">
+      <div _ngcontent-ng-c2151317684="" class="row">
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Algemeen</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Algemeen">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/wat-is-het-omgevingsloket">Over het Omgevingsloket</a>
+            </li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/contact">Contact</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/storingen-onderhoud">Storingen en onderhoud</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/kwetsbaarheid-melden">Kwetsbaarheid melden</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/helpcentrum">Helpcentrum</a></li>
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-3 col-sm-6">
+          <h2 _ngcontent-ng-c2151317684="">Over deze site</h2>
+          <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Over deze site">
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/privacyverklaring">Privacyverklaring</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/cookies">Cookies</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/toegankelijkheid">Toegankelijkheid</a></li>
+            <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                _ngcontent-ng-c2151317684="" href="/gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+          </ul>
+        </div>
+        <div _ngcontent-ng-c2151317684="" class="col-md-6 col-sm-12">
+          <h2 _ngcontent-ng-c2151317684="">Omgevingsloket</h2>
+          <p _ngcontent-ng-c2151317684="" class="dso-rich-content">In het Omgevingsloket vindt u informatie over de
+            fysieke leefomgeving van gemeenten, provincies, waterschappen en het Rijk.
+          </p>
+          <div _ngcontent-ng-c2151317684="" class="row">
+            <div _ngcontent-ng-c2151317684="" class="col-md-2"><img _ngcontent-ng-c2151317684="" src="img/overheid.svg"
+                alt="Afbeelding van Rijkslogo lint" class="rijkslogo"></div>
+            <div _ngcontent-ng-c2151317684="" class="col-sm-10 dso-grey">
+              <p _ngcontent-ng-c2151317684="">Het Omgevingsloket is een gezamenlijk initiatief van het Ministerie van
+                Volkshuisvesting en Ruimtelijke Ordening (VRO), gemeenten, provincies en waterschappen.
+              </p>
+              <ul _ngcontent-ng-c2151317684="" class="dso-link-list" id="Omgevingsloket">
+                <li _ngcontent-ng-c2151317684="" routerlinkactive="dso-active" ariacurrentwhenactive="page"><a
+                    _ngcontent-ng-c2151317684="" href="/overheidspartners">Overheidspartners</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script>
       window.VCHECK_CONFIG = { navigatieVolgende: 'extra-werkzaamheden.html' };
@@ -311,15 +360,6 @@
     <script>
       // De JSON data uit je bestand
       const excelData = [
-        {
-          "Werkzaamheid": "As uitstrooien",
-          "Wat wilt u doen? (Type activiteit)": "Tuin of erf aanpassen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Eigen woning of tuin",
-          "Voor wie is het?": "Voor uzelf",
-          "Hoofdcategorie (SBI)": "",
-          "Subcategorie (SBI)": "",
-          "SBI-code": ""
-        },
         {
           "Werkzaamheid": "Asfalt of asfaltproducten maken",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
@@ -404,7 +444,7 @@
         {
           "Werkzaamheid": "Bedrijf dat onderhoud uitvoert in de openbare ruimte",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -494,7 +534,7 @@
         {
           "Werkzaamheid": "Begraafplaats aanleggen, gebruiken of veranderen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -530,7 +570,7 @@
         {
           "Werkzaamheid": "Bestaand civiel kunstwerk aanpassen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -665,7 +705,7 @@
         {
           "Werkzaamheid": "Bouwwerk reinigen of conserveren, of graffiti verwijderen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -683,7 +723,7 @@
         {
           "Werkzaamheid": "Bouwwerk voor een infrastructurele of openbare voorziening plaatsen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -719,7 +759,7 @@
         {
           "Werkzaamheid": "Brug aanpassen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -728,7 +768,7 @@
         {
           "Werkzaamheid": "Brug plaatsen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -737,7 +777,7 @@
         {
           "Werkzaamheid": "Brug weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -746,7 +786,7 @@
         {
           "Werkzaamheid": "Buiten de openbare weg rijden met auto of motor",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uzelf",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -764,7 +804,7 @@
         {
           "Werkzaamheid": "Calamiteitenoefening houden",
           "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -773,7 +813,7 @@
         {
           "Werkzaamheid": "Civiel kunstwerk aanleggen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -782,7 +822,7 @@
         {
           "Werkzaamheid": "Civiel kunstwerk weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -818,7 +858,7 @@
         {
           "Werkzaamheid": "Container voor het inzamelen van huishoudelijk afval",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -944,7 +984,7 @@
         {
           "Werkzaamheid": "Evenement organiseren",
           "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -953,7 +993,7 @@
         {
           "Werkzaamheid": "Fauna-uitstapplaats aanleggen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -962,7 +1002,7 @@
         {
           "Werkzaamheid": "Fauna-uitstapplaats weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1006,7 +1046,7 @@
         },
         {
           "Werkzaamheid": "Garagebedrijf, autoschadeherstelbedrijf, autowasstraat of bedrijf voor carrosseriebouw",
-          "Wat wilt u doen? (Type activiteit)": "Onderhoud en Reparatie",
+          "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
           "Waar wilt u dit doen? (Locatie/type omgeving)": "Bedrijfslocatie",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Vervoer en Reparatie",
@@ -1070,7 +1110,7 @@
         {
           "Werkzaamheid": "Geluidsinstallatie of ander apparaat met veel geluid gebruiken",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1169,7 +1209,7 @@
         {
           "Werkzaamheid": "Groepen mensen ontvangen of huisvesten in een gebouw of op een terrein",
           "Wat wilt u doen? (Type activiteit)": "Evenement organiseren",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1322,7 +1362,7 @@
         {
           "Werkzaamheid": "Kabel of leiding leggen, verplaatsen, vervangen of repareren",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Bouw en infrastructuur",
           "Subcategorie (SBI)": "Leidingwerk en kabels",
@@ -1331,7 +1371,7 @@
         {
           "Werkzaamheid": "Kabel of leiding weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
           "Subcategorie (SBI)": "Sloopwerkzaamheden",
@@ -1349,7 +1389,7 @@
         {
           "Werkzaamheid": "Koelwater lozen",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
           "Subcategorie (SBI)": "Lozen van koelwater",
@@ -1421,7 +1461,7 @@
         {
           "Werkzaamheid": "Laadpaal plaatsen",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1475,7 +1515,7 @@
         {
           "Werkzaamheid": "Lozingsvoorziening aanleggen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
           "Subcategorie (SBI)": "Aanleg of vervanging van lozingsvoorzieningen",
@@ -1484,7 +1524,7 @@
         {
           "Werkzaamheid": "Lozingsvoorziening aanpassen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Milieu- en afvalbeheer",
           "Subcategorie (SBI)": "Aanpassen van lozingsvoorzieningen",
@@ -1493,7 +1533,7 @@
         {
           "Werkzaamheid": "Lozingsvoorziening weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
           "Subcategorie (SBI)": "Verwijderen van lozingsvoorzieningen",
@@ -1682,7 +1722,7 @@
         {
           "Werkzaamheid": "Modelvliegtuig, modelboot of modelauto gebruiken",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uzelf",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1772,7 +1812,7 @@
         {
           "Werkzaamheid": "Onttrekkingsvoorziening aanleggen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
           "Subcategorie (SBI)": "Aanleg of vervanging van onttrekkingsvoorzieningen",
@@ -1781,7 +1821,7 @@
         {
           "Werkzaamheid": "Onttrekkingsvoorziening weghalen",
           "Wat wilt u doen? (Type activiteit)": "Sloopwerkzaamheden",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "Grond- en sloopwerkzaamheden",
           "Subcategorie (SBI)": "Verwijderen van onttrekkingsvoorzieningen",
@@ -1808,7 +1848,7 @@
         {
           "Werkzaamheid": "Parkeergarage",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1862,7 +1902,7 @@
         {
           "Werkzaamheid": "Reclame of informatiebord plaatsen",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1871,7 +1911,7 @@
         {
           "Werkzaamheid": "Recreatiesector",
           "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor het publiek",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1880,7 +1920,7 @@
         {
           "Werkzaamheid": "Regenwater lozen",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uzelf",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1889,7 +1929,7 @@
         {
           "Werkzaamheid": "Rioolwater lozen vanuit een overstort",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de buurt/gemeente",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -1997,7 +2037,7 @@
         {
           "Werkzaamheid": "Skibaan of ijsbaan",
           "Wat wilt u doen? (Type activiteit)": "Bedrijf starten of veranderen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor het publiek",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -2006,7 +2046,7 @@
         {
           "Werkzaamheid": "Spoorwegemplacement",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor de overheid",
           "Hoofdcategorie (SBI)": "Vervoer en opslag",
           "Subcategorie (SBI)": "Inrichting van spoorwegemplacementen",
@@ -2015,7 +2055,7 @@
         {
           "Werkzaamheid": "Sport- of speeltoestel plaatsen of vervangen",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor het publiek",
           "Hoofdcategorie (SBI)": "Inrichting van spoorwegemplacementen",
           "Subcategorie (SBI)": "",
@@ -2024,7 +2064,7 @@
         {
           "Werkzaamheid": "Sporthal, sportveld of andere sportaccommodatie",
           "Wat wilt u doen? (Type activiteit)": "Bouwen of verbouwen",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (straat, plein, park)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor het publiek",
           "Hoofdcategorie (SBI)": "52.21.1",
           "Subcategorie (SBI)": "",
@@ -2042,7 +2082,7 @@
         {
           "Werkzaamheid": "Standplaats innemen",
           "Wat wilt u doen? (Type activiteit)": "Overige activiteiten",
-          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte (markt, evenement)",
+          "Waar wilt u dit doen? (Locatie/type omgeving)": "Openbare ruimte",
           "Voor wie is het?": "Voor uw bedrijf",
           "Hoofdcategorie (SBI)": "",
           "Subcategorie (SBI)": "",
@@ -2331,14 +2371,10 @@
         const query = document.getElementById('searchInput').value.toLowerCase();
 
         // 1. Verzamel alle aangevinkte elementen
-        const activeSelection = Array.from(document.querySelectorAll('dso-selectable'))
-          .filter(s => s.checked)
-          .map(s => ({
+        const activeSelection = Array.from(checkedFilters.entries()).map(([s, { label: labelText, category }]) => ({
             val: s.value,
-            text: s.innerText,
-            // Bepaal in welke categorie dit element hoort op basis van de tekst
-            category: s.innerText.includes("Voor") ? 'wie' :
-              (s.innerText.includes("terrein") || s.innerText.includes("locatie") || s.innerText.includes("ruimte") || s.innerText.includes("tuin")) ? 'waar' : 'wat'
+            text: labelText,
+            category
           }));
 
         // 2. Maak drie aparte lijsten voor de AND-vergelijking
@@ -2359,8 +2395,7 @@
           if (s.val === "15") return "Grondwaterlocaties";
           if (s.val === "16") return "Militaire locatie";
           if (s.val === "17") return "Natuurgebied";
-          if (s.val === "18") return "Openbare ruimte (markt, evenement)";
-          if (s.val === "19") return "Openbare ruimte (straat, plein, park)";
+          if (s.val === "18") return "Openbare ruimte";
           if (s.val === "110") return "Specifieke locatie (brandweer, politiebureau)";
           if (s.val === "111") return "Vakantiepark recreatieterrein";
           if (s.val === "112") return "Water (sloot, vijver, rivier)";
@@ -2420,6 +2455,7 @@
         if (pagination) {
           pagination.setAttribute('total-pages', totalPages);
           pagination.setAttribute('current-page', currentPage);
+          pagination.style.display = data.length === 0 ? 'none' : '';
         }
 
         if (data.length === 0) {
@@ -2478,13 +2514,20 @@
 
       // Voor de DSO checkboxes (luister naar dsoChange)
       // 2. De aangepaste Event Listeners
+      const checkedFilters = new Map(); // selectable element → labeltekst
+
       selectables.forEach(selectable => {
         selectable.addEventListener('dsoChange', (event) => {
-          // Forceer de 'checked' status op het element op basis van het event detail
-          // Dit zorgt ervoor dat de .filter(s => s.checked) hierboven altijd klopt
           selectable.checked = event.detail.checked;
-
-          // Kleine timeout om de component tijd te geven de DOM te updaten
+          if (event.detail.checked) {
+            const labelText = selectable.innerText.replace(/\s\(\d+\)$/, "").trim();
+            const section = selectable.closest('dso-accordion-section');
+            const sectionTitle = section ? (section.getAttribute('handle-title') || '') : '';
+            const category = sectionTitle.includes('Voor wie') ? 'wie' : sectionTitle.includes('Waar') ? 'waar' : 'wat';
+            checkedFilters.set(selectable, { label: labelText, category });
+          } else {
+            checkedFilters.delete(selectable);
+          }
           setTimeout(updateDisplay, 10);
         });
       });
@@ -2493,33 +2536,23 @@
         const listContainer = document.getElementById('active-filters-list');
         if (!listContainer) return;
 
-        listContainer.innerHTML = ''; // Maak de lijst leeg
+        listContainer.innerHTML = '';
 
-        // Zoek alle aangevinkte checkboxes
-        const activeCheckboxes = Array.from(document.querySelectorAll('dso-selectable'))
-          .filter(s => s.checked || s.hasAttribute('checked'));
-
-        activeCheckboxes.forEach(cb => {
-          // Haal de tekst op (zonder de teller-span)
-          const labelText = cb.innerText.replace(/\s\(\d+\)$/, "").trim();
-
-          // 1. Maak het lijst-item aan
+        checkedFilters.forEach(({ label: labelText }, cb) => {
           const li = document.createElement('li');
 
-          // 2. Maak het dso-label aan
           const dsoLabel = document.createElement('dso-label');
           dsoLabel.setAttribute('removable', '');
           dsoLabel.innerText = labelText;
 
-          // 3. Voeg de event listener toe (met de juiste naam: dsoRemoveClick)
           dsoLabel.addEventListener('dsoRemoveClick', (event) => {
             event.preventDefault();
             cb.checked = false;
             cb.removeAttribute('checked');
+            checkedFilters.delete(cb);
             updateDisplay();
           });
 
-          // 4. Voeg label toe aan li, en li aan de ul
           li.appendChild(dsoLabel);
           listContainer.appendChild(li);
         });
