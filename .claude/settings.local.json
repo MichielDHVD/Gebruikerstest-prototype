@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:omgevingswet.overheid.nl)",
       "Bash(git add *)",
-      "Bash(git commit -m 'Fix navigatie conclusie en vragen paginas voor dakkapel flow *)"
+      "Bash(git commit -m 'Fix navigatie conclusie en vragen paginas voor dakkapel flow *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(git remote *)"
     ]
   }
 }
